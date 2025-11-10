@@ -78,7 +78,6 @@
       width:100%;aspect-ratio:16/9;max-height:460px;border-radius:22px;overflow:hidden;
       border:1px solid var(--glass-brd);background:rgba(255,255,255,0.08);box-shadow:var(--glow)
     }
-
   </style>
 </head>
 <body>
@@ -114,8 +113,8 @@
             <a class="btn" id="btnTeam" target="_blank" rel="noopener">👥 Peerpuri Cricket Team</a>
             <a class="btn" id="btnCommittee" target="_blank" rel="noopener">🛠️ आयोजन समिति</a>
             <a class="btn" id="btnHistory" target="_blank" rel="noopener">📜 Cup History</a>
-            <a class="btn" id="btnHistory1" target="_blank">📜 Win Photos</a>
-            <a class="btn" id="btnHistory2" target="_blank">📜 Cup Memories</a>
+            <a class="btn" id="btnHistory1" target="_blank" rel="noopener">📸 Win Photos</a>
+            <a class="btn" id="btnHistory2" target="_blank" rel="noopener">🖼️ Cup Memories</a>
           </div>
         </section>
 
@@ -145,22 +144,30 @@
   </div>
 
   <script>
-    /* Button Links config */
+    /* Button Links config — FIXED COMMAS ✅ */
     const LINKS = {
-      cup2025: "https://devthakan.github.io/peerpuri/cup2025.html",
-      team: "https://devthakan.github.io/peerpuri/",
-      committee: "https://devthakan.github.io/peerpuri/committee.html",
-      history: "https://devthakan.github.io/peerpuri/versions.html"
-      history1: "https://peerpuricup.weebly.com/win-kanod-photos.html"
-    history2: "https://devthakan.github.io/peerpuri/cup2024_memories.html"
+      cup2025:  "https://devthakan.github.io/peerpuri/cup2025_coming.html",
+      team:     "https://devthakan.github.io/peerpuri/",
+      committee:"https://devthakan.github.io/peerpuri/committee.html",
+      history:  "https://devthakan.github.io/peerpuri/versions.html",
+      history1: "https://peerpuricup.weebly.com/win-kanod-photos.html",
+      history2: "https://devthakan.github.io/peerpuri/cup2024_memories.html"
     };
-    document.getElementById("btnCup2025").href  = LINKS.cup2025;
-    document.getElementById("btnTeam").href     = LINKS.team;
-    document.getElementById("btnCommittee").href= LINKS.committee;
-    document.getElementById("btnHistory").href  = LINKS.history;
-document.getElementById("btnHistory1").href  = LINKS.history1;
-    document.getElementById("btnHistory2").href  = LINKS.history2;
-    // Welcome animation
+
+    // Safe setter
+    const setHref = (id, url) => {
+      const el = document.getElementById(id);
+      if (el && url) el.href = url;
+    };
+
+    setHref("btnCup2025",   LINKS.cup2025);
+    setHref("btnTeam",      LINKS.team);
+    setHref("btnCommittee", LINKS.committee);
+    setHref("btnHistory",   LINKS.history);
+    setHref("btnHistory1",  LINKS.history1);
+    setHref("btnHistory2",  LINKS.history2);
+
+    // Welcome typing animation
     const line = "पीरपूरी क्रिकेट टीम आप का स्वागत करती है 🙏🎉🏏";
     const el = document.getElementById("animatedLine");
     let i = 0, typing = true;
