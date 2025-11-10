@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Peerpuri Cricket Cup 2025 — Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+Devanagari:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b1220; --ink:#ffffff; --glass: rgba(255,255,255,.12); --brd: rgba(255,255,255,.35);
+      --accent1:#7c3aed; --accent2:#0ea5e9; --accent3:#22c55e;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--ink);
+      font-family:"Inter","Noto Sans Devanagari",system-ui,Segoe UI,Roboto,Arial;
+      background:
+        radial-gradient(1200px 1200px at 10% -10%, var(--accent1) 0%, transparent 60%),
+        radial-gradient(1000px 1000px at 110% 10%, var(--accent2) 0%, transparent 60%),
+        radial-gradient(900px 900px at 50% 120%, var(--accent3) 0%, transparent 60%), var(--bg);
+      overflow:hidden;
+    }
+    .mist{position:fixed;inset:-12vmax;background:conic-gradient(from 180deg at 50% 50%, rgba(255,255,255,.06), rgba(255,255,255,0), rgba(255,255,255,.06));filter:blur(80px);animation:swirl 22s linear infinite;pointer-events:none}
+    @keyframes swirl{to{transform:rotate(360deg)}}
+
+    .wrap{
+      min-height:100%; display:grid; place-items:center; padding:28px;
+    }
+    .card{
+      width:min(1000px,92vw);
+      background:var(--glass); border:1px solid var(--brd); border-radius:26px;
+      backdrop-filter:blur(14px) saturate(140%);
+      box-shadow: 0 10px 40px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.06);
+      position:relative; overflow:hidden; padding:28px;
+    }
+
+    /* Header */
+    .head{
+      display:flex; align-items:center; justify-content:center; gap:12px; flex-wrap:wrap; margin:10px 0 18px;
+      text-align:center;
+    }
+    .title{
+      margin:0; font-weight:900; letter-spacing:.4px;
+      font-size: clamp(26px,5vw,48px);
+      text-shadow:0 10px 30px rgba(0,0,0,.35);
+    }
+    .pill{
+      border:1px solid var(--brd); border-radius:999px; padding:6px 12px; font-weight:700;
+      background:linear-gradient( to right, rgba(255,255,255,.18), rgba(255,255,255,.06) );
+    }
+
+    /* Animated COMING SOON */
+    .stage{
+      position:relative; display:grid; place-items:center; padding:30px 10px 38px;
+    }
+    .soon{
+      font-weight:900; text-transform:uppercase; letter-spacing:.28em; text-align:center;
+      font-size: clamp(28px, 9vw, 120px);
+      line-height:1; margin:0;
+      background: linear-gradient(90deg,#fff, #c9e7ff, #b1ffd4, #fff);
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+      filter: drop-shadow(0 18px 40px rgba(0,0,0,.45));
+      animation: shine 3.2s linear infinite, float 4s ease-in-out infinite;
+    }
+    @keyframes shine{
+      0%{ background-position: 0% 50% }
+      100%{ background-position: 200% 50% }
+    }
+    @keyframes float{
+      0%,100%{ transform: translateY(0) }
+      50%{ transform: translateY(-10px) }
+    }
+
+    /* Hindi line under it */
+    .hint{
+      margin-top:14px; text-align:center; font-weight:800; opacity:.92;
+      font-size: clamp(14px,2.6vw,22px);
+    }
+
+    /* Cricket ball orbit animation */
+    .orbit{
+      position:absolute; inset:0; pointer-events:none;
+      display:grid; place-items:center;
+    }
+    .ball{
+      width: clamp(42px,6vw,68px); aspect-ratio:1; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #ff4955, #9b0010 60%);
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.15), 0 16px 40px rgba(0,0,0,.45);
+      position:absolute;
+      animation: orbit 7.5s linear infinite;
+    }
+    .ball::after{ /* seam */
+      content:""; position:absolute; inset:0;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,.25), transparent 60%),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.9) 0 2px, rgba(255,255,255,0) 2px 6px);
+      -webkit-mask: radial-gradient(circle at 50% 50%, transparent 46%, black 47%);
+              mask: radial-gradient(circle at 50% 50%, transparent 46%, black 47%);
+      filter: blur(.3px);
+    }
+    @keyframes orbit{
+      0%  { transform: rotate(0deg) translateX(230px) rotate(0deg) }
+      100%{ transform: rotate(360deg) translateX(230px) rotate(-360deg) }
+    }
+
+    /* Bottom tag */
+    .tag{
+      margin:22px auto 6px; width:fit-content; padding:10px 14px; border-radius:14px;
+      border:1px solid var(--brd);
+      background:linear-gradient(180deg, rgba(255,255,255,.16), rgba(255,255,255,.06));
+      font-weight:700; opacity:.95
+    }
+
+    /* Subtle corner sparkles */
+    .spark{
+      position:absolute; width:140px; height:140px; border-radius:50%; filter:blur(40px); opacity:.55; pointer-events:none;
+      background: radial-gradient(circle, rgba(255,255,255,.6), rgba(255,255,255,0));
+      mix-blend-mode: screen;
+    }
+    .s1{left:-40px; top:-40px}
+    .s2{right:-40px; bottom:-40px}
+
+    /* Safe area on very small screens */
+    @media (max-width:380px){ .soon{letter-spacing:.18em} }
+  </style>
+</head>
+<body>
+  <div class="mist"></div>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="spark s1"></div><div class="spark s2"></div>
+
+      <header class="head">
+        <h1 class="title">Peerpuri Cricket Cup 2025</h1>
+        <span class="pill">🏏 Official Announcement</span>
+      </header>
+
+      <div class="stage">
+        <h2 class="soon">Coming&nbsp;Soon</h2>
+        <div class="orbit">
+          <div class="ball" aria-hidden="true"></div>
+        </div>
+        <p class="hint">जल्द आ रहा है — तैयार रहिए! 🎉</p>
+      </div>
+
+      <div class="tag">Follow updates here</div>
+    </section>
+  </main>
+</body>
+</html>
