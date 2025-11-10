@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Peerpuri Cricket — संस्करण 10–15</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800;900&family=Noto+Sans+Devanagari:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1220; --ink:#fff; --glass:rgba(255,255,255,.12); --brd:rgba(255,255,255,.25);
+  --a1:#7c3aed; --a2:#0ea5e9; --a3:#22c55e; --r:22px;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; color:var(--ink);
+  font-family:"Inter","Noto Sans Devanagari",system-ui;
+  background:
+    radial-gradient(1200px 1200px at 10% -10%, var(--a1) 0%, transparent 60%),
+    radial-gradient(1000px 1000px at 110% 10%, var(--a2) 0%, transparent 60%),
+    radial-gradient(900px 900px at 50% 120%, var(--a3) 0%, transparent 60%), var(--bg);
+  min-height:100vh; overflow-x:hidden;
+}
+.mist{position:fixed;inset:-10vmax;background:conic-gradient(from 180deg at 50% 50%,rgba(255,255,255,.06),rgba(255,255,255,0),rgba(255,255,255,.06));filter:blur(70px);animation:swirl 24s linear infinite;pointer-events:none;z-index:0}
+@keyframes swirl{to{transform:rotate(360deg)}}
+.wrap{position:relative;z-index:1;max-width:1100px;margin:auto;padding:56px 18px 90px}
+header{text-align:center;margin-bottom:18px}
+h1{
+  font-size:clamp(26px,4.5vw,44px);font-weight:900;margin:0;
+  background:linear-gradient(90deg,#9ae6b4,#93c5fd,#86efac,#a5b4fc);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-size:300% 100%;animation:shine 8s linear infinite;
+  text-shadow:0 6px 24px rgba(0,0,0,.45);
+}
+@keyframes shine{to{background-position:200% 50%}}
+.subtitle{opacity:.92;font-weight:700;margin-top:6px}
+
+.btnbar{margin:16px auto 22px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.gbtn{
+  position:relative;display:inline-flex;align-items:center;gap:8px;justify-content:center;
+  padding:12px 16px;border-radius:16px;color:#fff;text-decoration:none;font-weight:800;
+  background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
+  border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(16px) saturate(160%);
+  box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
+  transition:transform .25s ease,box-shadow .25s ease;overflow:hidden;cursor:pointer;
+}
+.gbtn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.5)}
+
+.glass{background:var(--glass);border:1px solid var(--brd);border-radius:var(--r);backdrop-filter:blur(16px) saturate(160%);box-shadow:0 10px 40px rgba(0,0,0,.4), inset 0 0 0 1px rgba(255,255,255,.06)}
+.pad{padding:14px}
+
+.anchor{margin:4px 0 12px 0; font-size:13px; opacity:.85}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{
+  padding:6px 10px;border-radius:999px;font-weight:800;font-size:12px;
+  border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.08);color:#fff;text-decoration:none
+}
+
+.timeline{margin-top:18px;display:grid;gap:16px}
+.card{position:relative;overflow:hidden}
+.head{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px
+}
+.badge{
+  padding:6px 10px;border-radius:999px;font-weight:900;font-size:12px;
+  border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.10)
+}
+.title{font-weight:900;font-size:clamp(18px,3vw,22px)}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 10px 0}
+.meta .pill{padding:6px 10px;border-radius:999px;font-size:12px;font-weight:800;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08)}
+.desc{opacity:.95;line-height:1.6}
+.hr{height:1px;background:rgba(255,255,255,.15);margin:16px 0}
+.note{margin-top:14px;text-align:center;opacity:.8;font-size:12px}
+</style>
+</head>
+<body>
+<div class="mist"></div>
+<div class="wrap">
+  <header>
+    <h1>संस्करण 10–15 • Peerpuri Cricket</h1>
+    <div class="subtitle">आयोजन/प्रायोजक विवरण • वर्ष • पुरस्कार • पारदर्शी रिकॉर्ड</div>
+    <nav class="btnbar">
+      <a class="gbtn" href="index.html">🏠 Home</a>
+      <a class="gbtn" href="achievements.html">🏆 Achievements</a>
+      <a class="gbtn" href="committee.html">👥 Committee</a>
+      <a class="gbtn" href="team_public.html">👤 Team Status</a>
+    </nav>
+  </header>
+
+  <!-- Quick Jump -->
+  <div class="glass pad">
+    <div class="anchor">Quick Jump:</div>
+    <div class="chips" id="anchors"></div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="timeline" id="timeline"></div>
+
+  <div class="note">Note: सभी टेक्स्ट नीचे JS के डेटा ब्लॉक से render हो रहे हैं — आप वहीं edit कर सकते हैं।</div>
+</div>
+
+<script>
+/* ========= DATA: यहीं से edit करें ========= */
+const VERSIONS = [
+  {
+    id:"v10",
+    num:"संस्करण - 10",
+    year:"2021",
+    title:"मेघवालों की बस्ती — सरपंच श्रीमान शैलेन्द्र कुमार द्वारा",
+    desc:`मेघवालो की बस्ती सरपंच श्रीमान शैलेन्द्र कुमार द्वारा करवाया गया था जो आयोजन वर्ष 2021 में आयोजित हुई थी.`,
+    tags:["आयोजक: शैलेन्द्र कुमार (सरपंच)","स्थान: मेघवालों की बस्ती"]
+  },
+  {
+    id:"v11",
+    num:"संस्करण - 11",
+    year:"2022 (जनवरी)",
+    title:"भाजपा महामंत्री बाड़मेर — श्रीमान बाला राम जी (बायतु) द्वारा",
+    desc:`भाजपा महामंत्री बाड़मेर श्रीमान बाला राम जी ( बायतु ) द्वारा करवाया गया था जो आयोजन वर्ष 2022 (जनवरी) में आयोजित हुई थी.`,
+    tags:["आयोजक: बाला राम जी (बायतु)","पद: भाजपा महामंत्री, बाड़मेर"]
+  },
+  {
+    id:"v12",
+    num:"संस्करण - 12",
+    year:"—",
+    title:"आर्थिक सहयोग — श्री नारायण सिंह जी राजपुरोहित, श्री देवी लाल जी सोयल (कानोड़), श्री मदन सिंह जी राजपुरोहित (मंडल कानोड़)",
+    desc:`इस ट्रोफी का आयोजन श्री नारायण सिंह जी राजपुरोहित व् श्री देवी लाल जी सोयल कानोड़, श्री मदन सिंह जी राजपुरोहित (मंडल कानोड़) के आर्थिक सहयोग से हो रहा है जिसमें पहला पुरस्कार ग्यारह हजार रुपये श्री नारायण सिंह जी की तरफ से है व् द्वितीय पुरस्कार श्री देवी लाल जी सोयल कानोड़ की तरफ से आयोजित हुई थी.`,
+    tags:["प्रथम पुरस्कार: ₹11,000 (श्री नारायण सिंह)","द्वितीय पुरस्कार: (श्री देवी लाल सोयल)"]
+  },
+  {
+    id:"v13",
+    num:"संस्करण - 13",
+    year:"2022",
+    title:"मेघवालों की बस्ती — सरपंच श्रीमान शैलेन्द्र कुमार द्वारा",
+    desc:`मेघवालो की बस्ती सरपंच श्रीमान शैलेन्द्र कुमार द्वारा करवाया गया था जो आयोजन वर्ष 2022 में आयोजित हुई थी.`,
+    tags:["आयोजक: शैलेन्द्र कुमार (सरपंच)","स्थान: मेघवालों की बस्ती"]
+  },
+  {
+    id:"v14",
+    num:"संस्करण - 14",
+    year:"—",
+    title:"श्रीमान किशोर सिंह जी कानोड़ (युवा उद्यमी व समाजसेवी) द्वारा",
+    desc:`श्रीमान किशोर सिंह जी कानोड़ (युवा उधमी व् समाजसेवी) के द्वारा आयोजित करवाई गया जिसमें श्रीमान किशोर सिंह द्वारा एंट्री फ़ीस फ्री के साथ में प्रथम पुरस्कार ₹31,000, दूसरा पुरस्कार ₹15,000 व तीसरा पुरस्कार ₹11,000 रखा गया था। गिडा ब्लॉक का इतना बड़ा एंट्री फ़ीस का पहला टूर्नामेंट था। इसमें सम्पूर्ण खर्च ₹1,51,000 आया था.`,
+    tags:["Entry Fee: Free","1st: ₹31,000","2nd: ₹15,000","3rd: ₹11,000","कुल खर्च: ₹1,51,000"]
+  },
+  {
+    id:"v15",
+    num:"संस्करण - 15",
+    year:"—",
+    title:"श्रीमान नारायण सिंह जी द्वारा",
+    desc:`श्रीमान नारायण सिंह जी द्वारा करवाया गया जिसमें लगभग ₹2,00,000 का खर्च आया — विजेता को ₹31,000 तथा उप-विजेता को ₹15,000 दिया गया था।`,
+    tags:["कुल खर्च: ~₹2,00,000","Winner: ₹31,000","Runner-up: ₹15,000"]
+  }
+];
+/* ========================================= */
+
+const anchors = document.getElementById('anchors');
+const timeline = document.getElementById('timeline');
+
+function cardHTML(v){
+  return `
+  <section id="${v.id}" class="glass pad card">
+    <div class="head">
+      <span class="badge">${v.num}</span>
+      <div class="title">${v.title}</div>
+    </div>
+    <div class="meta">
+      <span class="pill">वर्ष: ${v.year}</span>
+      ${v.tags.map(t=>`<span class="pill">${t}</span>`).join("")}
+    </div>
+    <div class="desc">${v.desc}</div>
+  </section>`;
+}
+
+function render(){
+  anchors.innerHTML = VERSIONS.map(v=>`<a class="chip" href="#${v.id}">${v.num}</a>`).join("");
+  timeline.innerHTML = VERSIONS.map(cardHTML).join('<div class="hr"></div>');
+}
+render();
+</script>
+</body>
+</html>
