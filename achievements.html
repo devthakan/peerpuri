@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Peerpuri Cricket — Achievements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+Devanagari:wght@600;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b1220; 
+      --text:#ffffff;
+      --glass:rgba(255,255,255,0.12);
+      --brd:rgba(255,255,255,0.25);
+      --accent1:#7c3aed;
+      --accent2:#0ea5e9;
+      --accent3:#22c55e;
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:"Inter","Noto Sans Devanagari",system-ui;
+      background:
+        radial-gradient(1200px 1200px at 10% -10%, var(--accent1) 0%, transparent 60%),
+        radial-gradient(1000px 1000px at 110% 10%, var(--accent2) 0%, transparent 60%),
+        radial-gradient(900px 900px at 50% 120%, var(--accent3) 0%, transparent 60%),
+        var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+      min-height:100vh;
+    }
+
+    .mist{
+      position:fixed;inset:-10vmax;
+      background:conic-gradient(from 180deg at 50% 50%,rgba(255,255,255,.06),rgba(255,255,255,0),rgba(255,255,255,.06));
+      filter:blur(70px);
+      animation:swirl 25s linear infinite;
+      pointer-events:none;
+      z-index:0;
+    }
+    @keyframes swirl{to{transform:rotate(360deg)}}
+
+    .container{
+      position:relative;z-index:1;
+      padding:60px 20px 80px;
+      max-width:1200px;margin:auto;
+    }
+
+    header{text-align:center;margin-bottom:24px;}
+    header h1{
+      font-size:clamp(28px,4vw,46px);
+      font-weight:900;
+      text-shadow:0 6px 24px rgba(0,0,0,0.4);
+      background:linear-gradient(90deg,#9ae6b4,#93c5fd,#86efac,#a5b4fc);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-size:300% 100%;
+      animation:shine 8s linear infinite;
+    }
+    @keyframes shine{
+      0%{background-position:0% 50%;}
+      100%{background-position:200% 50%;}
+    }
+    header p{font-weight:600;opacity:.9;margin-top:8px;}
+
+    /* ===== Glass Buttons (same effect as cards) ===== */
+    .btnbar{
+      margin:18px auto 36px;
+      display:flex; gap:12px; flex-wrap:wrap; justify-content:center;
+      max-width:860px;
+    }
+    .gbtn{
+      position:relative;
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 18px; border-radius:16px;
+      color:var(--text); text-decoration:none; font-weight:800; letter-spacing:.2px;
+      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(16px) saturate(160%);
+      box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
+      transition:transform .25s ease, box-shadow .25s ease;
+      overflow:hidden;
+    }
+    .gbtn::before{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(125deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,0) 55%,rgba(255,255,255,.18) 100%);
+      opacity:0; transition:opacity .35s ease;
+    }
+    .gbtn:hover{ transform:translateY(-4px); box-shadow:0 18px 40px rgba(0,0,0,.5) }
+    .gbtn:hover::before{ opacity:1 }
+
+    .section{margin-top:40px;}
+    .section h2{
+      font-size:clamp(20px,3vw,30px);
+      font-weight:900;
+      text-align:center;
+      margin-bottom:25px;
+      letter-spacing:.5px;
+      text-shadow:0 4px 20px rgba(0,0,0,0.6);
+    }
+
+    .grid{
+      display:grid;
+      gap:24px;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    }
+
+    /* Glass Card */
+    .card{
+      position:relative;
+      border-radius:20px;
+      overflow:hidden;
+      background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.25);
+      backdrop-filter:blur(18px) saturate(160%);
+      box-shadow:0 10px 40px rgba(0,0,0,0.4),inset 0 0 0 1px rgba(255,255,255,0.05);
+      transition:all .35s ease;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(125deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,0) 50%,rgba(255,255,255,.15) 100%);
+      opacity:0;
+      transition:opacity .4s ease;
+    }
+    .card:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 20px 50px rgba(0,0,0,.55) }
+    .card:hover::before{ opacity:1 }
+
+    .card img{
+      width:100%;
+      aspect-ratio:16/9;
+      object-fit:cover;
+      border-bottom:1px solid rgba(255,255,255,0.25);
+      filter:saturate(1.15);
+      transition:transform .4s ease;
+    }
+    .card:hover img{ transform:scale(1.05) }
+
+    .info{padding:14px 18px;}
+    .info h3{margin:0;font-size:17px;font-weight:800;}
+    .info p{margin-top:4px;font-size:13px;opacity:.9;}
+
+    .tag{
+      position:absolute;top:12px;left:12px;
+      background:linear-gradient(135deg,#93c5fdcc,#86efaccc);
+      padding:6px 12px;border-radius:999px;
+      font-size:12px;font-weight:800;backdrop-filter:blur(6px);
+    }
+    .year{
+      position:absolute;top:12px;right:12px;
+      background:rgba(0,0,0,0.45);
+      padding:6px 12px;border-radius:999px;
+      font-size:12px;font-weight:800;
+    }
+
+    footer{
+      margin-top:60px;text-align:center;
+      font-size:14px;opacity:.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="mist"></div>
+  <div class="container">
+    <header>
+      <h1>🏏 Peerpuri Cricket Team Kanod</h1>
+      <p>ग्लासी इफ़ेक्ट के साथ हमारी जीत और सम्मान की कहानियाँ</p>
+
+      <!-- Glass Buttons Bar -->
+      <nav class="btnbar">
+        <!-- yahan apne real links daal dena -->
+        <a class="gbtn" href="index.html">🏠 Home</a>
+        <a class="gbtn" href="cup2025.html">🏆 Peerpuri Cup 2025</a>
+        <a class="gbtn" href="https://chat.whatsapp.com/" target="_blank" rel="noopener">💬 WhatsApp Group</a>
+        <a class="gbtn" href="#winners">🥇 Winners</a>
+        <a class="gbtn" href="#runnerup">🥈 Runner-Up</a>
+      </nav>
+    </header>
+
+    <!-- Winners -->
+    <section class="section" id="winners">
+      <h2>🥇 Winners</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Winner</span><span class="year">2023</span>
+          <img src="https://live.staticflickr.com/65535/54914051490_098b476a91_z.jpg" alt="">
+          <div class="info">
+            <h3>Panavda Cricket Tournament</h3>
+            <p>Winner — 2023</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Winner</span><span class="year">2023</span>
+          <img src="https://live.staticflickr.com/65535/54914000404_bc696702cf_z.jpg" alt="">
+          <div class="info">
+            <h3>Gramin Olympic • Block Gida</h3>
+            <p>Winner — 2023</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Winner</span><span class="year">2024</span>
+          <img src="https://live.staticflickr.com/65535/54912884022_502c95b4fe_z.jpg" alt="">
+          <div class="info">
+            <h3>Bhimda Cricket Tournament</h3>
+            <p>Winner — 2024</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Winner</span><span class="year">2024</span>
+          <img src="https://live.staticflickr.com/65535/54914003159_935cc8deee_z.jpg" alt="">
+          <div class="info">
+            <h3>Sawau Padam Singh Tournament</h3>
+            <p>Winner — 2024</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Winner</span><span class="year">2024</span>
+          <img src="https://live.staticflickr.com/65535/54913970678_5b9066a051_z.jpg" alt="">
+          <div class="info">
+            <h3>Malva Cricket Cup</h3>
+            <p>Winner — 2024</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Runner-Up -->
+    <section class="section" id="runnerup">
+      <h2>🥈 Runner-Up</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="tag">Runner-Up</span><span class="year">2024</span>
+          <img src="https://live.staticflickr.com/65535/54914077475_31b4b23b31_z.jpg" alt="">
+          <div class="info">
+            <h3>Ramderia Cup</h3>
+            <p>Runner-Up — 2024</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="tag">Runner-Up</span><span class="year">2025</span>
+          <img src="https://live.staticflickr.com/65535/54913996543_0fbbaa7c58_z.jpg" alt="">
+          <div class="info">
+            <h3>Gida Tournament</h3>
+            <p>Runner-Up — 2025</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>© 2025 Peerpuri Cricket Team Kanod • All Wins and Runner-Ups</footer>
+  </div>
+</body>
+</html>
