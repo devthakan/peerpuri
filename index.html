@@ -1,614 +1,472 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PEERPURI CUP - पीरपूरी क्लब कानोड़</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Hindi & English -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800;900&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PEERPURI CUP - Official Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Poppins:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --red-dark: #4a0007;
+      --red-main: #b71c1c;
+      --red-bright: #ff1744;
+      --glass-bg: rgba(255, 255, 255, 0.14);
+      --glass-border: rgba(255, 255, 255, 0.38);
+      --glass-shine: rgba(255, 255, 255, 0.25);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    body {
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #d50000 0%, #7f0000 45%, #2b0000 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 16px 14px 40px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Floating Glass Orbs in Background */
+    .bg-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(55px);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .orb-1 { width: 240px; height: 240px; background: rgba(255, 255, 255, 0.22); top: -50px; left: -60px; }
+    .orb-2 { width: 280px; height: 280px; background: rgba(255, 23, 68, 0.45); bottom: 10%; right: -80px; }
+    .orb-3 { width: 180px; height: 180px; background: rgba(255, 255, 255, 0.18); top: 45%; left: -40px; }
 
-    <style>
-        :root {
-            --primary-red: #d90429;
-            --bright-red: #ef233c;
-            --deep-red: #8d0801;
-            --pure-white: #ffffff;
-        }
+    .app-shell {
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
 
-        body {
-            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
-            background: linear-gradient(145deg, #fff5f6 0%, #ffe3e6 45%, #f8d7da 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-            color: #1f2937;
-        }
+    /* Ultra Glass Effect */
+    .glass-box {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.07) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid var(--glass-border);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.65);
+      border-left: 1.5px solid rgba(255, 255, 255, 0.55);
+      border-radius: 24px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    }
 
-        /* Background Decorative Glowing Orbs for Glassmorphism Contrast */
-        .bg-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(55px);
-            z-index: 0;
-            pointer-events: none;
-        }
-        .orb-1 {
-            width: 300px;
-            height: 300px;
-            background: rgba(217, 4, 41, 0.35);
-            top: -80px;
-            right: -80px;
-            animation: floatOrb 8s ease-in-out infinite alternate;
-        }
-        .orb-2 {
-            width: 260px;
-            height: 260px;
-            background: rgba(239, 35, 60, 0.28);
-            bottom: 12%;
-            left: -90px;
-            animation: floatOrb 10s ease-in-out infinite alternate-reverse;
-        }
-        .orb-3 {
-            width: 220px;
-            height: 220px;
-            background: rgba(217, 4, 41, 0.22);
-            top: 42%;
-            right: -60px;
-            animation: floatOrb 12s ease-in-out infinite alternate;
-        }
+    /* Top Header PEERPURI CUP */
+    .main-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,235,238,0.88) 100%);
+      border-radius: 22px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.35);
+      border: 2px solid #ffffff;
+    }
+    .main-header i {
+      font-size: 1.6rem;
+      color: #d50000;
+      filter: drop-shadow(0 2px 4px rgba(213,0,0,0.35));
+    }
+    .main-header span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #8e0000, #d50000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        @keyframes floatOrb {
-            0% { transform: translateY(0px) scale(1); }
-            100% { transform: translateY(30px) scale(1.1); }
-        }
+    /* Welcome Hero Card */
+    .welcome-card {
+      padding: 22px 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .welcome-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .welcome-title {
+      font-size: 1.42rem;
+      font-weight: 900;
+      color: #ffffff;
+      line-height: 1.45;
+      text-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+      margin-bottom: 10px;
+    }
+    .welcome-sub {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.95);
+      background: rgba(0, 0, 0, 0.28);
+      display: inline-block;
+      padding: 6px 16px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
 
-        /* Core Glassmorphism Classes */
-        .glass-card {
-            background: rgba(255, 255, 255, 0.72);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 12px 32px 0 rgba(217, 4, 41, 0.12), 
-                        inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
-        }
+    /* Hanging Realistic Cloth Banner */
+    .cloth-stage {
+      position: relative;
+      padding-top: 24px;
+      margin: 4px 0 6px;
+      perspective: 900px;
+    }
+    .rod-bar {
+      position: absolute;
+      top: 0;
+      left: 6%;
+      right: 6%;
+      height: 7px;
+      background: linear-gradient(90deg, #ffffff, #ffcdd2, #ffffff);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+    }
+    .rope-left, .rope-right {
+      position: absolute;
+      top: 5px;
+      width: 3px;
+      height: 24px;
+      background: linear-gradient(180deg, #ffffff, #ff8a80);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+    .rope-left { left: 16%; }
+    .rope-right { right: 16%; }
+    .rope-left::before, .rope-right::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: -4.5px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 2px solid #b71c1c;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    }
 
-        .glass-red {
-            background: linear-gradient(135deg, rgba(217, 4, 41, 0.92) 0%, rgba(168, 2, 31, 0.95) 100%);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
-            box-shadow: 0 12px 28px rgba(217, 4, 41, 0.32);
-        }
+    .hanging-cloth {
+      background: linear-gradient(180deg, #ffffff 0%, #fff5f5 45%, #ffebee 85%, #ffcdd2 100%);
+      color: #9b0000;
+      padding: 22px 16px 26px;
+      border-radius: 10px 10px 30px 30px;
+      text-align: center;
+      position: relative;
+      transform-origin: top center;
+      animation: clothWave 3.8s ease-in-out infinite alternate;
+      box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.55),
+        inset 0 -10px 18px rgba(183, 28, 28, 0.18),
+        inset 0 4px 10px rgba(255, 255, 255, 0.9);
+      border-top: 5px solid #d50000;
+      overflow: hidden;
+    }
+    .hanging-cloth::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        rgba(183, 28, 28, 0.03) 0px,
+        rgba(255, 255, 255, 0.4) 22px,
+        rgba(183, 28, 28, 0.06) 44px
+      );
+      pointer-events: none;
+    }
+    .hanging-cloth::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: repeating-linear-gradient(90deg, #d50000 0px, #d50000 8px, transparent 8px, transparent 14px);
+    }
+    .cloth-headline {
+      position: relative;
+      z-index: 1;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #b71c1c;
+      line-height: 1.45;
+      text-shadow: 0 1px 0 #ffffff;
+    }
+    .cloth-date-pill {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      background: linear-gradient(135deg, #d50000, #8e0000);
+      color: #ffffff;
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      box-shadow: 0 4px 12px rgba(213, 0, 0, 0.45);
+      border: 1.5px solid #ffffff;
+    }
+    @keyframes clothWave {
+      0% { transform: rotateX(4deg) rotateZ(-1.4deg) skewX(-0.8deg); }
+      50% { transform: rotateX(-3deg) rotateZ(0.8deg) skewX(0.5deg); }
+      100% { transform: rotateX(5deg) rotateZ(1.4deg) skewX(-0.5deg); }
+    }
 
-        /* Hanging Cloth (Kapda) Banner Effect */
-        .cloth-container {
-            perspective: 1000px;
-            transform-origin: top center;
-        }
+    /* Modern Glassy Buttons */
+    .btn-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+    .glass-btn {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 15px 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.1) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+      color: #ffffff;
+      transition: all 0.22s ease;
+    }
+    .glass-btn:active {
+      transform: scale(0.97);
+      background: rgba(255, 255, 255, 0.35);
+    }
+    .btn-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .btn-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: #ffffff;
+      color: #c62828;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+    .btn-text-title {
+      font-size: 1.08rem;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    .btn-text-sub {
+      font-size: 0.78rem;
+      color: #ffebee;
+      opacity: 0.92;
+      display: block;
+      margin-top: 2px;
+    }
+    .btn-arrow {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 0.9rem;
+    }
 
-        .hanging-cloth {
-            transform-origin: top center;
-            animation: clothSway 4.5s ease-in-out infinite;
-            background: linear-gradient(180deg, #b8001f 0%, #e60529 18%, #d90429 50%, #ff1e42 82%, #b0001d 100%);
-            background-size: 100% 100%;
-            box-shadow: 
-                0 18px 35px -5px rgba(141, 8, 1, 0.45),
-                0 6px 12px rgba(0, 0, 0, 0.15),
-                inset 0 2px 6px rgba(255, 255, 255, 0.4),
-                inset 0 -8px 16px rgba(80, 0, 10, 0.5);
-            position: relative;
-            border-radius: 6px 6px 18px 18px;
-        }
+    /* Organizer Photo Showcase */
+    .organizer-card {
+      padding: 16px;
+      text-align: center;
+    }
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ffffff;
+      color: #b71c1c;
+      font-weight: 800;
+      font-size: 0.88rem;
+      padding: 5px 16px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .flickr-frame {
+      width: 100%;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2.5px solid #ffffff;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+      background: #1a0000;
+      line-height: 0;
+    }
+    .flickr-frame a {
+      display: block;
+      width: 100%;
+    }
+    .flickr-frame img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 400 / 225;
+      object-fit: cover;
+      display: block;
+    }
 
-        /* Subtle fabric wave & sheen overlay */
-        .hanging-cloth::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: repeating-linear-gradient(
-                90deg,
-                rgba(255, 255, 255, 0.04) 0px,
-                rgba(255, 255, 255, 0.12) 25px,
-                rgba(0, 0, 0, 0.08) 50px,
-                rgba(255, 255, 255, 0.04) 75px
-            );
-            border-radius: inherit;
-            pointer-events: none;
-            animation: fabricRipple 6s ease-in-out infinite alternate;
-        }
-
-        /* Gold/White Stitched Inner Border on Cloth */
-        .cloth-stitch {
-            border: 2px dashed rgba(255, 255, 255, 0.65);
-            border-radius: 4px 4px 14px 14px;
-        }
-
-        @keyframes clothSway {
-            0%, 100% {
-                transform: rotateX(4deg) rotateZ(-0.8deg) skewX(-0.6deg);
-            }
-            50% {
-                transform: rotateX(-5deg) rotateZ(0.8deg) skewX(0.6deg);
-            }
-        }
-
-        @keyframes fabricRipple {
-            0% { opacity: 0.55; background-position: 0% 0%; }
-            100% { opacity: 0.9; background-position: 30px 0%; }
-        }
-
-        /* Hanging Rope / Cord Pins */
-        .rope-left, .rope-right {
-            width: 3px;
-            height: 22px;
-            background: linear-gradient(to bottom, #9ca3af, #d90429);
-            position: relative;
-        }
-        .pin-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30% 30%, #ffffff, #d90429 70%, #6b0214);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-        }
-
-        /* Modern Interactive Glass Buttons */
-        .modern-btn {
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(255, 240, 242, 0.82) 100%);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1.5px solid rgba(217, 4, 41, 0.25);
-            box-shadow: 0 8px 20px -4px rgba(217, 4, 41, 0.16),
-                        inset 0 2px 2px rgba(255, 255, 255, 1);
-        }
-
-        .modern-btn:hover, .modern-btn:active {
-            transform: translateY(-3px) scale(1.015);
-            background: linear-gradient(135deg, #d90429 0%, #b50221 100%);
-            color: #ffffff !important;
-            border-color: rgba(255, 255, 255, 0.6);
-            box-shadow: 0 14px 26px -5px rgba(217, 4, 41, 0.45);
-        }
-
-        .modern-btn:hover .btn-icon-box,
-        .modern-btn:active .btn-icon-box {
-            background: rgba(255, 255, 255, 0.22);
-            color: #ffffff;
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-        .modern-btn:hover .btn-subtext,
-        .modern-btn:active .btn-subtext {
-            color: rgba(255, 255, 255, 0.85);
-        }
-
-        .modern-btn:hover .btn-arrow,
-        .modern-btn:active .btn-arrow {
-            color: #ffffff;
-            transform: translateX(4px);
-        }
-
-        /* Tassel Fringe at bottom of cloth */
-        .cloth-fringe {
-            height: 8px;
-            background: repeating-linear-gradient(
-                90deg,
-                #ffd166 0px,
-                #ffd166 4px,
-                transparent 4px,
-                transparent 8px
-            );
-            opacity: 0.85;
-        }
-
-        /* Pulse Ring for Live / Tournament Badge */
-        @keyframes pulseRed {
-            0% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0.6); }
-            70% { box-shadow: 0 0 0 10px rgba(217, 4, 41, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(217, 4, 41, 0); }
-        }
-        .pulse-badge {
-            animation: pulseRed 2s infinite;
-        }
-    </style>
+    /* WhatsApp Glass Card */
+    .wa-glass-card {
+      padding: 18px 16px;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 235, 238, 0.92) 100%);
+      color: #8e0000;
+      border: 2px solid #ffffff;
+    }
+    .wa-label {
+      font-size: 0.94rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #b71c1c;
+    }
+    .wa-join-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      background: linear-gradient(135deg, #d50000 0%, #9b0000 100%);
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 1rem;
+      box-shadow: 0 8px 20px rgba(183, 28, 28, 0.45);
+      border: 1.5px solid #ffffff;
+      transition: transform 0.2s;
+    }
+    .wa-join-btn:active { transform: scale(0.97); }
+    .wa-join-btn i { font-size: 1.35rem; }
+  </style>
 </head>
-<body class="antialiased selection:bg-red-600 selection:text-white pb-10">
+<body>
 
-    <!-- Decorative Floating Orbs for Glassy Backdrop -->
-    <div class="bg-orb orb-1"></div>
-    <div class="bg-orb orb-2"></div>
-    <div class="bg-orb orb-3"></div>
+  <!-- Glowing Background Orbs -->
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
 
-    <!-- Main Mobile-First Container -->
-    <div class="relative z-10 max-w-md mx-auto px-4 pt-3 flex flex-col gap-5">
+  <div class="app-shell">
 
-        <!-- 1. TOP MAIN HEADER: PEERPURI CUP -->
-        <header class="glass-red rounded-2xl p-3.5 text-white sticky top-2 z-30 flex items-center justify-between shadow-lg">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-xl bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center shadow-inner">
-                    <i class="fa-solid fa-trophy text-yellow-300 text-xl drop-shadow"></i>
-                </div>
-                <div>
-                    <div class="flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-yellow-300 animate-ping"></span>
-                        <span class="text-[10px] font-semibold uppercase tracking-widest text-red-100">Official Tournament Portal</span>
-                    </div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-wider uppercase leading-none mt-0.5 drop-shadow-sm">
-                        PEERPURI CUP
-                    </h1>
-                </div>
-            </div>
-            <button onclick="openModal('cup')" aria-label="Tournament Info" class="w-9 h-9 rounded-full bg-white/15 hover:bg-white/25 border border-white/30 flex items-center justify-center text-white transition">
-                <i class="fa-solid fa-baseball-bat-ball text-sm"></i>
-            </button>
-        </header>
+    <!-- Main Head PEERPURI CUP -->
+    <header class="main-header">
+      <i class="fa-solid fa-trophy"></i>
+      <span>PEERPURI CUP</span>
+    </header>
 
-        <!-- 2. WELCOME HERO CARD (GLASSY RED & WHITE) -->
-        <section class="glass-card rounded-3xl p-5 sm:p-6 text-center relative overflow-hidden">
-            <!-- Top Red Accent Pill -->
-            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-red-600/10 border border-red-500/25 text-red-700 text-xs font-semibold mb-3">
-                <i class="fa-solid fa-Hands-praying text-red-600"></i>
-                <span>हार्दिक अभिनन्दन एवं स्वागत</span>
-            </div>
+    <!-- Welcome Section (Clean Hindi) -->
+    <section class="glass-box welcome-card">
+      <h1 class="welcome-title">पीरपूरी क्लब कानोड़ आपका हार्दिक स्वागत करता है</h1>
+      <p class="welcome-sub">पीरपूरी क्रिकेट कप के 15 सफल संस्करण पूर्ण हो चुके हैं</p>
+    </section>
 
-            <!-- Main Hindi Welcome Text -->
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-red-700 leading-snug tracking-tight drop-shadow-sm">
-                पीरपूरी क्लब कानोड़ आप का स्वागत करती है
-            </h2>
-
-            <!-- Decorative Divider -->
-            <div class="flex items-center justify-center gap-2 my-3">
-                <span class="h-[2px] w-12 bg-gradient-to-r from-transparent to-red-500 rounded-full"></span>
-                <i class="fa-solid fa-star text-red-600 text-xs"></i>
-                <span class="h-[2px] w-12 bg-gradient-to-l from-transparent to-red-500 rounded-full"></span>
-            </div>
-
-            <!-- Smaller Normal Font Subtext as Requested -->
-            <p class="text-xs sm:text-sm font-normal text-gray-700 bg-white/80 border border-red-100 rounded-xl py-2 px-3 shadow-sm inline-block">
-                <i class="fa-solid fa-circle-check text-red-600 mr-1"></i>
-                Peerpuri Cricket Cup के 15 संस्करण complete हो गए हैं
-            </p>
-        </section>
-
-        <!-- 3. HANGING CLOTH BANNER (लटकता हुआ कपड़ा बैनर) -->
-        <section class="cloth-container pt-1 pb-2">
-            <!-- Hanging Pins & Ropes -->
-            <div class="flex justify-between px-8 -mb-1 relative z-20">
-                <div class="flex flex-col items-center">
-                    <div class="pin-dot"></div>
-                    <div class="rope-left"></div>
-                </div>
-                <div class="flex flex-col items-center">
-                    <div class="pin-dot"></div>
-                    <div class="rope-right"></div>
-                </div>
-            </div>
-
-            <!-- Swaying Red Cloth Banner -->
-            <div class="hanging-cloth p-1.5 text-white">
-                <div class="cloth-stitch px-4 py-5 text-center relative">
-                    <!-- Corner Golden Ornaments -->
-                    <span class="absolute top-1.5 left-2 text-yellow-300/80 text-xs">✦</span>
-                    <span class="absolute top-1.5 right-2 text-yellow-300/80 text-xs">✦</span>
-                    <span class="absolute bottom-1.5 left-2 text-yellow-300/80 text-xs">✦</span>
-                    <span class="absolute bottom-1.5 right-2 text-yellow-300/80 text-xs">✦</span>
-
-                    <!-- Night Floodlight Icons -->
-                    <div class="inline-flex items-center gap-1.5 bg-white/20 backdrop-blur-sm px-3 py-0.5 rounded-full text-[11px] font-semibold text-yellow-200 border border-white/30 mb-2">
-                        <i class="fa-solid fa-moon text-yellow-300"></i>
-                        <span>महाकुंभ 16वां संस्करण • डे-नाईट</span>
-                        <i class="fa-solid fa-bolt text-yellow-300"></i>
-                    </div>
-
-                    <!-- Banner Main Announcement Text -->
-                    <h3 class="text-lg sm:text-xl font-extrabold leading-relaxed tracking-wide text-white drop-shadow-md">
-                        राजपुरोहित 24 खेड़ा डे नाईट क्रिकेट टूर्नामेंट 2026
-                    </h3>
-
-                    <!-- Highlighted Date Pill on Cloth -->
-                    <div class="mt-2.5 inline-block bg-white text-red-700 font-extrabold text-sm sm:text-base px-4 py-1.5 rounded-full shadow-md border-2 border-yellow-300">
-                        <i class="fa-regular fa-calendar-check mr-1 text-red-600"></i>
-                        11 नवम्बर से शुरू होगा
-                    </div>
-                </div>
-                <!-- Bottom Cloth Golden Fringe -->
-                <div class="cloth-fringe w-full mt-0.5 rounded-b-lg"></div>
-            </div>
-        </section>
-
-        <!-- 4. MODERN INTERACTIVE GLASSY BUTTONS -->
-        <section class="flex flex-col gap-3">
-            <div class="flex items-center justify-between px-1">
-                <span class="text-xs font-bold uppercase tracking-wider text-red-800/80 flex items-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-red-600"></span>
-                    टूर्नामेंट नेविगेशन (Quick Links)
-                </span>
-                <span class="text-[11px] text-gray-500">टैप करके देखें</span>
-            </div>
-
-            <!-- Button 1: Peerpuri Cup -->
-            <button onclick="openModal('cup')" class="modern-btn w-full rounded-2xl p-3.5 flex items-center justify-between text-left group">
-                <div class="flex items-center gap-3.5">
-                    <div class="btn-icon-box w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-xl shadow-md border border-red-400 transition-colors">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <div>
-                        <span class="block text-base sm:text-lg font-bold text-gray-900 group-hover:text-white transition-colors">
-                            Peerpuri Cup
-                        </span>
-                        <span class="btn-subtext block text-xs text-gray-500 transition-colors">
-                            15 सफल संस्करण और टूर्नामेंट का इतिहास
-                        </span>
-                    </div>
-                </div>
-                <div class="btn-arrow w-8 h-8 rounded-full bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-white/20 transition-all">
-                    <i class="fa-solid fa-chevron-right text-sm"></i>
-                </div>
-            </button>
-
-            <!-- Button 2: Peerpuri Team -->
-            <button onclick="openModal('team')" class="modern-btn w-full rounded-2xl p-3.5 flex items-center justify-between text-left group">
-                <div class="flex items-center gap-3.5">
-                    <div class="btn-icon-box w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-xl shadow-md border border-red-400 transition-colors">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <div>
-                        <span class="block text-base sm:text-lg font-bold text-gray-900 group-hover:text-white transition-colors">
-                            Peerpuri Team
-                        </span>
-                        <span class="btn-subtext block text-xs text-gray-500 transition-colors">
-                            राजपुरोहित 24 खेड़ा की टीमें एवं खिलाड़ी
-                        </span>
-                    </div>
-                </div>
-                <div class="btn-arrow w-8 h-8 rounded-full bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-white/20 transition-all">
-                    <i class="fa-solid fa-chevron-right text-sm"></i>
-                </div>
-            </button>
-
-            <!-- Button 3: Ayojan Cameti -->
-            <button onclick="openModal('committee')" class="modern-btn w-full rounded-2xl p-3.5 flex items-center justify-between text-left group">
-                <div class="flex items-center gap-3.5">
-                    <div class="btn-icon-box w-12 h-12 rounded-xl bg-red-600 text-white flex items-center justify-center text-xl shadow-md border border-red-400 transition-colors">
-                        <i class="fa-solid fa-users-gear"></i>
-                    </div>
-                    <div>
-                        <span class="block text-base sm:text-lg font-bold text-gray-900 group-hover:text-white transition-colors">
-                            Ayojan Cameti
-                        </span>
-                        <span class="btn-subtext block text-xs text-gray-500 transition-colors">
-                            पीरपूरी क्लब कानोड़ आयोजन कमेटी सदस्य
-                        </span>
-                    </div>
-                </div>
-                <div class="btn-arrow w-8 h-8 rounded-full bg-red-50 flex items-center justify-center text-red-600 group-hover:bg-white/20 transition-all">
-                    <i class="fa-solid fa-chevron-right text-sm"></i>
-                </div>
-            </button>
-        </section>
-
-        <!-- 5. ORGANIZER (AAYOJAK) PHOTO SHOWCASE CARD -->
-        <section class="glass-card rounded-3xl p-4 sm:p-5 relative overflow-hidden">
-            <!-- Section Header Badge -->
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center gap-2">
-                    <span class="w-8 h-8 rounded-lg bg-red-600 text-white flex items-center justify-center text-sm shadow">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </span>
-                    <div>
-                        <h3 class="text-sm sm:text-base font-bold text-gray-900 leading-tight">
-                            मुख्य आयोजक (Main Organizer)
-                        </h3>
-                        <p class="text-[11px] text-red-600 font-medium">पीरपूरी क्लब कानोड़</p>
-                    </div>
-                </div>
-                <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-red-100 text-red-700 border border-red-200">
-                    PEERPURI CUP
-                </span>
-            </div>
-
-            <!-- Organizer Photo Wrapper (Calibrated for 400x225 / 16:9 ratio without stretching) -->
-            <div class="relative rounded-2xl overflow-hidden border-2 border-white shadow-lg bg-gradient-to-b from-red-50 to-red-100/50 group">
-                <a data-flickr-embed="true" href="https://www.flickr.com/photos/203006862@N04/54913979979" title="narayan-singh_orig" target="_blank" rel="noopener noreferrer" class="block w-full">
-                    <img 
-                        src="https://live.staticflickr.com/65535/54913979979_e4f77bc88e_w.jpg" 
-                        width="400" 
-                        height="225" 
-                        alt="narayan-singh_orig"
-                        class="w-full h-auto aspect-[16/9] object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                        onerror="this.onerror=null; this.src='https://placehold.co/400x225/d90429/ffffff?text=Organizer+Photo';"
-                    />
-                </a>
-                <!-- Subtle Bottom Glass Overlay on Photo -->
-                <div class=" bg-gradient-to-r from-red-700 via-red-600 to-red-700 text-white px-3.5 py-2 flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-award text-yellow-300"></i>
-                        <span class="text-xs sm:text-sm font-bold tracking-wide">श्री नारायण सिंह जी (आयोजक)</span>
-                    </div>
-                    <span class="text-[10px] bg-white/20 px-2 py-0.5 rounded-full">कानोड़</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. LATEST UPDATE WHATSAPP GROUP JOIN SECTION -->
-        <section class="glass-card rounded-3xl p-5 text-center border-2 border-red-200/80 relative overflow-hidden">
-            <!-- Top Red Glow Strip -->
-            <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-red-500 via-white to-red-600"></div>
-
-            <div class="w-12 h-12 rounded-2xl bg-green-500/15 border border-green-500/30 text-green-600 flex items-center justify-center text-2xl mx-auto mb-2.5 shadow-sm">
-                <i class="fa-brands fa-whatsapp"></i>
-            </div>
-
-            <span class="inline-block text-[11px] font-bold uppercase tracking-wider text-red-600 bg-red-50 px-3 py-0.5 rounded-full border border-red-200 mb-1">
-                Live Match & Schedule Updates
-            </span>
-
-            <h3 class="text-base sm:text-lg font-extrabold text-gray-900 mt-1">
-                Latest Update के लिए Join Whatsapp Group
-            </h3>
-            <p class="text-xs text-gray-600 mt-1 mb-4">
-                टूर्नामेंट की सभी ताज़ा जानकारी, मैच शेड्यूल और लाइव स्कोर अपडेट पाने के लिए अभी ग्रुप से जुड़ें।
-            </p>
-
-            <!-- Direct Clickable WhatsApp CTA Button -->
-            <a 
-                href="https://chat.whatsapp.com/CHMrnpvU7ri1IIIU36jDcY" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="pulse-badge w-full py-3.5 px-5 rounded-2xl bg-gradient-to-r from-red-600 via-red-500 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold text-sm sm:text-base shadow-lg flex items-center justify-center gap-2.5 transition-transform active:scale-95 border border-white/40"
-            >
-                <i class="fa-brands fa-whatsapp text-xl text-green-300"></i>
-                <span>Join WhatsApp Group</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-80"></i>
-            </a>
-
-            <!-- Copy / Direct Link Display -->
-            <div class="mt-3 pt-2.5 border-t border-red-100 flex items-center justify-between gap-2 bg-white/70 rounded-xl px-3 py-1.5 text-[11px] text-gray-600">
-                <span class="truncate font-mono text-gray-500">https://chat.whatsapp.com/CHMrnpvU7ri1IIIU36jDcY</span>
-                <button onclick="copyWhatsappLink()" id="copyBtn" class="shrink-0 text-red-600 font-semibold hover:underline flex items-center gap-1">
-                    <i class="fa-regular fa-copy"></i> Copy
-                </button>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="text-center py-3 text-xs text-gray-600">
-            <p class="font-semibold text-red-700">© 2026 PEERPURI CUP • पीरपूरी क्लब कानोड़</p>
-            <p class="text-[11px] text-gray-500 mt-0.5">राजपुरोहित 24 खेड़ा डे नाईट क्रिकेट टूर्नामेंट</p>
-        </footer>
-
-    </div>
-
-    <!-- INTERACTIVE GLASS MODAL FOR THE 3 BUTTONS -->
-    <div id="infoModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 backdrop-blur-sm transition-opacity">
-        <div class="glass-card bg-white/95 rounded-3xl max-w-sm w-full p-5 shadow-2xl border-2 border-red-200 relative animate-[ fadeIn_0.25s_ease-out ]">
-            <div class="flex items-center justify-between pb-3 border-b border-red-100">
-                <div class="flex items-center gap-2.5">
-                    <div id="modalIcon" class="w-10 h-10 rounded-xl bg-red-600 text-white flex items-center justify-center text-lg shadow">
-                        <i class="fa-solid fa-trophy"></i>
-                    </div>
-                    <h4 id="modalTitle" class="text-lg font-extrabold text-red-700">Peerpuri Cup</h4>
-                </div>
-                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-red-50 text-red-600 hover:bg-red-600 hover:text-white flex items-center justify-center transition">
-                    <i class="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-
-            <div id="modalBody" class="py-4 text-sm text-gray-700 space-y-2.5 leading-relaxed">
-                <!-- Populated dynamically via JS -->
-            </div>
-
-            <div class="pt-2 flex gap-2">
-                <a href="https://chat.whatsapp.com/CHMrnpvU7ri1IIIU36jDcY" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-xl bg-red-600 text-white text-center font-bold text-xs flex items-center justify-center gap-1.5 shadow hover:bg-red-700 transition">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> WhatsApp से जुड़ें
-                </a>
-                <button onclick="closeModal()" class="px-4 py-2.5 rounded-xl bg-gray-100 text-gray-700 font-semibold text-xs hover:bg-gray-200 transition">
-                    बंद करें
-                </button>
-            </div>
+    <!-- Modern Hanging Cloth Banner -->
+    <div class="cloth-stage">
+      <div class="rod-bar"></div>
+      <div class="rope-left"></div>
+      <div class="rope-right"></div>
+      <div class="hanging-cloth">
+        <div class="cloth-headline">
+          राजपुरोहित 24 खेड़ा डे-नाईट क्रिकेट टूर्नामेंट 2026
         </div>
+        <div class="cloth-date-pill">
+          <i class="fa-solid fa-calendar-check"></i> 11 नवम्बर से शुरू होगा
+        </div>
+      </div>
     </div>
 
-    <!-- Toast Notification for Copy -->
-    <div id="toastMsg" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 hidden bg-red-700 text-white text-xs font-semibold px-4 py-2.5 rounded-full shadow-lg border border-white/40 items-center gap-2">
-        <i class="fa-solid fa-circle-check text-yellow-300"></i>
-        <span>WhatsApp ग्रुप लिंक कॉपी हो गया!</span>
-    </div>
+    <!-- 3 Modern Glassy Buttons (Clean Hindi + English) -->
+    <nav class="btn-stack">
+      <a href="cup.html" class="glass-btn">
+        <div class="btn-left">
+          <div class="btn-icon"><i class="fa-solid fa-award"></i></div>
+          <div>
+            <div class="btn-text-title">पीरपूरी कप (Peerpuri Cup)</div>
+            <span class="btn-text-sub">स्पष्ट नियमावली • खेल के नियम • 10–15 संस्करण</span>
+          </div>
+        </div>
+        <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      </a>
 
-    <script>
-        // Content for the 3 interactive buttons
-        const modalContent = {
-            cup: {
-                title: "Peerpuri Cup (16वां संस्करण)",
-                icon: "fa-trophy",
-                body: `
-                    <div class="bg-red-50 border border-red-200 rounded-xl p-3 text-red-800 font-semibold text-xs">
-                        🏆 Peerpuri Cricket Cup के 15 संस्करण सफलतापूर्वक पूर्ण हो चुके हैं!
-                    </div>
-                    <p><strong>पीरपूरी क्लब कानोड़</strong> द्वारा आयोजित <strong>राजपुरोहित 24 खेड़ा डे नाईट क्रिकेट टूर्नामेंट 2026</strong> की भव्य शुरुआत <strong>11 नवम्बर 2026</strong> से होने जा रही है।</p>
-                    <ul class="list-disc list-inside text-xs space-y-1 text-gray-600">
-                        <li>दूधिया रोशनी (Floodlights) में रोमांचक डे-नाईट मुकाबले</li>
-                        <li>आकर्षक ट्रॉफी एवं नकद पुरस्कार</li>
-                        <li>लाइव स्कोरिंग एवं अनुशासित आयोजन</li>
-                    </ul>
-                `
-            },
-            team: {
-                title: "Peerpuri Team (24 खेड़ा)",
-                icon: "fa-shield-halved",
-                body: `
-                    <p>राजपुरोहित 24 खेड़ा की सभी प्रतिभागी टीमों का <strong>पीरपूरी क्लब कानोड़</strong> हार्दिक स्वागत करता है।</p>
-                    <div class="bg-white border border-red-100 rounded-xl p-3 text-xs space-y-1.5 shadow-sm">
-                        <div class="flex justify-between"><span>📍 आयोजन स्थल:</span><strong class="text-red-700">कानोड़</strong></div>
-                        <div class="flex justify-between"><span>📅 प्रारंभ तिथि:</span><strong class="text-red-700">11 नवम्बर 2026</strong></div>
-                        <div class="flex justify-between"><span>🏏 फॉर्मेट:</span><strong class="text-red-700">डे-नाईट टेनिस बॉल क्रिकेट</strong></div>
-                    </div>
-                    <p class="text-xs text-gray-500">टीम रजिस्ट्रेशन एवं नियम की जानकारी के लिए नीचे दिए गए WhatsApp ग्रुप से जुड़ें।</p>
-                `
-            },
-            committee: {
-                title: "Ayojan Cameti (आयोजन कमेटी)",
-                icon: "fa-users-gear",
-                body: `
-                    <p><strong>पीरपूरी क्लब कानोड़</strong> की समस्त आयोजन कमेटी एवं युवा साथी इस 16वें संस्करण को ऐतिहासिक बनाने के लिए तत्पर हैं।</p>
-                    <div class="bg-red-50/80 border border-red-200 rounded-xl p-3 text-xs space-y-1">
-                        <p class="font-bold text-red-700">मुख्य आयोजक: श्री नारायण सिंह जी</p>
-                        <p class="text-gray-600">एवं समस्त पीरपूरी क्लब कानोड़ सदस्यगण।</p>
-                    </div>
-                    <p class="text-xs text-gray-500">किसी भी प्रकार की सहायता व अपडेट के लिए आधिकारिक WhatsApp ग्रुप ज्वाइन करें।</p>
-                `
-            }
-        };
+      <a href="team.html" class="glass-btn">
+        <div class="btn-left">
+          <div class="btn-icon"><i class="fa-solid fa-baseball-bat-ball"></i></div>
+          <div>
+            <div class="btn-text-title">पीरपूरी टीम (Peerpuri Team)</div>
+            <span class="btn-text-sub">पीरपूरी क्लब कानोड़ की मुख्य टीम</span>
+          </div>
+        </div>
+        <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      </a>
 
-        function openModal(type) {
-            const data = modalContent[type];
-            if (!data) return;
-            document.getElementById('modalTitle').textContent = data.title;
-            document.getElementById('modalIcon').innerHTML = `<i class="fa-solid ${data.icon}"></i>`;
-            document.getElementById('modalBody').innerHTML = data.body;
-            const modal = document.getElementById('infoModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
+      <a href="committee.html" class="glass-btn">
+        <div class="btn-left">
+          <div class="btn-icon"><i class="fa-solid fa-users-gear"></i></div>
+          <div>
+            <div class="btn-text-title">आयोजन कमेटी (Committee)</div>
+            <span class="btn-text-sub">सीनियर कमेटी • आयोजन कमेटी • डिसीजन मेकर</span>
+          </div>
+        </div>
+        <div class="btn-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+      </a>
+    </nav>
 
-        function closeModal() {
-            const modal = document.getElementById('infoModal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-        }
+    <!-- Organizer Photo Card -->
+    <section class="glass-box organizer-card">
+      <div class="card-badge">
+        <i class="fa-solid fa-star"></i> मुख्य आयोजक <i class="fa-solid fa-star"></i>
+      </div>
+      <div class="flickr-frame">
+        <a data-flickr-embed="true" href="https://www.flickr.com/photos/203006862@N04/54913979979" title="narayan-singh_orig">
+          <img src="https://live.staticflickr.com/65535/54913979979_e4f77bc88e_w.jpg" width="400" height="225" alt="narayan-singh_orig"/>
+        </a>
+        <script async src="https://embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+      </div>
+    </section>
 
-        // Close modal when tapping backdrop
-        document.getElementById('infoModal').addEventListener('click', function(e) {
-            if (e.target === this) closeModal();
-        });
+    <!-- WhatsApp Latest Update Card -->
+    <section class="glass-box wa-glass-card">
+      <div class="wa-label">लेटेस्ट अपडेट्स के लिए हमारे WhatsApp ग्रुप से जुड़ें</div>
+      <a href="https://chat.whatsapp.com/CHMrnpvU7ri1IIIU36jDcY" target="_blank" class="wa-join-btn">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Join WhatsApp Group</span>
+      </a>
+    </section>
 
-        // Copy WhatsApp link helper
-        function copyWhatsappLink() {
-            const link = "https://chat.whatsapp.com/CHMrnpvU7ri1IIIU36jDcY";
-            const tempInput = document.createElement("textarea");
-            tempInput.value = link;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
+  </div>
 
-            const toast = document.getElementById('toastMsg');
-            toast.classList.remove('hidden');
-            toast.classList.add('flex');
-            setTimeout(() => {
-                toast.classList.add('hidden');
-                toast.classList.remove('flex');
-            }, 2500);
-        }
-    </script>
 </body>
 </html>
