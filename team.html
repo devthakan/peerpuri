@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peerpuri Team - PEERPURI CUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #d50000 0%, #7f0000 45%, #2b0000 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 16px 14px 40px;
+      overflow-x: hidden;
+    }
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(55px); z-index: 0; pointer-events: none; }
+    .orb-1 { width: 240px; height: 240px; background: rgba(255, 255, 255, 0.22); top: -50px; left: -60px; }
+    .orb-2 { width: 280px; height: 280px; background: rgba(255, 23, 68, 0.45); bottom: 10%; right: -80px; }
+
+    .app-shell {
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+    .back-link {
+      text-decoration: none;
+      background: linear-gradient(135deg, #d50000, #8e0000);
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .page-title { font-weight: 800; color: #b71c1c; font-size: 1.05rem; }
+
+    .glass-box {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.65);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    }
+    .squad-header {
+      background: #ffffff;
+      color: #b71c1c;
+      padding: 10px 14px;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.08rem;
+      margin-bottom: 14px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .squad-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+    .player-glass {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,235,238,0.88));
+      color: #7f0000;
+      padding: 12px 10px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      border: 1.5px solid #ffffff;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+    }
+    .player-glass i {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #d50000;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <div class="app-shell">
+    <div class="top-nav">
+      <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Home</a>
+      <span class="page-title"><i class="fa-solid fa-baseball-bat-ball"></i> Peerpuri Team</span>
+    </div>
+
+    <div class="glass-box">
+      <div class="squad-header">🏆 पीरपूरी क्लब कानोड़ (मुख्य स्क्वॉड)</div>
+      <div class="squad-grid">
+        <div class="player-glass"><i class="fa-solid fa-crown"></i><span>जोगा राम लेघा (C)</span></div>
+        <div class="player-glass"><i class="fa-solid fa-user-shield"></i><span>रावत लेघा</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>लाला राम गोदारा</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>हमीर सिंह</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>चुना राम</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>सुरेश लेघा</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>जसराज सोनी</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>राजू सिंह फौजी</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>किशन पूरी</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>खीमा राम</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>भैर नाथ</span></div>
+        <div class="player-glass"><i class="fa-solid fa-baseball"></i><span>नरोतम जाजडा</span></div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
