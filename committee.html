@@ -1,112 +1,182 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Peerpuri Cricket — आयोजन समिति</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Noto+Sans+Devanagari:wght@500;700;800&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayojan Cameti - PEERPURI CUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
-    :root{
-      --bg:#0b1220; --text:#fff; --glass:rgba(255,255,255,.12); --brd:rgba(255,255,255,.25);
-      --accent1:#7c3aed; --accent2:#0ea5e9; --accent3:#22c55e; --radius:22px;
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans Devanagari', 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 20%, #d50000 0%, #7f0000 45%, #2b0000 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 16px 14px 40px;
+      overflow-x: hidden;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family:"Inter","Noto Sans Devanagari",system-ui;
-      color:var(--text);
-      background:
-        radial-gradient(1200px 1200px at 10% -10%, var(--accent1) 0%, transparent 60%),
-        radial-gradient(1000px 1000px at 110% 10%, var(--accent2) 0%, transparent 60%),
-        radial-gradient(900px 900px at 50% 120%, var(--accent3) 0%, transparent 60%), var(--bg);
-      min-height:100vh; overflow-x:hidden;
+    .bg-orb { position: fixed; border-radius: 50%; filter: blur(55px); z-index: 0; pointer-events: none; }
+    .orb-1 { width: 240px; height: 240px; background: rgba(255, 255, 255, 0.22); top: -50px; left: -60px; }
+    .orb-2 { width: 280px; height: 280px; background: rgba(255, 23, 68, 0.45); bottom: 10%; right: -80px; }
+
+    .app-shell {
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
-    .mist{position:fixed;inset:-10vmax;background:conic-gradient(from 180deg at 50% 50%,rgba(255,255,255,.06),rgba(255,255,255,0),rgba(255,255,255,.06));filter:blur(70px);animation:swirl 25s linear infinite;pointer-events:none;z-index:0}
-    @keyframes swirl{to{transform:rotate(360deg)}}
-    .container{position:relative;z-index:1;max-width:1200px;margin:auto;padding:60px 20px 80px}
-    h1{
-      text-align:center;font-size:clamp(28px,4vw,44px);font-weight:900;
-      background:linear-gradient(90deg,#a5b4fc,#93c5fd,#86efac);
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
-      background-size:300% 100%;animation:shine 8s linear infinite;
+    .top-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      border: 2px solid #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
     }
-    @keyframes shine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
-    .subtitle{text-align:center;opacity:.9;font-weight:700;margin-top:6px;margin-bottom:22px}
-    .btnbar{margin:0 auto 26px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
-    .gbtn{
-      position:relative;display:inline-flex;align-items:center;gap:8px;justify-content:center;
-      padding:12px 18px;border-radius:16px;text-decoration:none;color:var(--text);font-weight:800;
-      background:linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.04));
-      border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(16px) saturate(160%);
-      box-shadow:0 10px 30px rgba(0,0,0,.35), inset 0 0 0 1px rgba(255,255,255,.05);
-      transition:transform .25s ease, box-shadow .25s ease;overflow:hidden;
+    .back-link {
+      text-decoration: none;
+      background: linear-gradient(135deg, #d50000, #8e0000);
+      color: #ffffff;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
-    .gbtn:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,0,0,.5)}
-    .section{margin-top:40px}
-    .secTitle{text-align:center;font-size:clamp(18px,3vw,24px);font-weight:900;margin-bottom:14px;text-shadow:0 2px 15px rgba(0,0,0,.4)}
-    .panel{background:var(--glass);border:1px solid var(--brd);border-radius:var(--radius);backdrop-filter:blur(16px);padding:20px}
-    .people{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-    .chip{display:flex;align-items:center;gap:12px;background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:10px 12px;transition:transform .2s ease, box-shadow .2s ease}
-    .chip:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.35)}
-    .avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,#a5b4fc,#86efac);border:1px solid rgba(255,255,255,.55)}
-    .name{font-weight:800;font-size:15px}
-    footer{text-align:center;margin-top:50px;font-size:14px;opacity:.8}
+    .page-title { font-weight: 800; color: #b71c1c; font-size: 1.05rem; }
+
+    .glass-box {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.08) 100%);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1.5px solid rgba(255, 255, 255, 0.4);
+      border-top: 1.5px solid rgba(255, 255, 255, 0.65);
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), inset 0 1px 2px rgba(255, 255, 255, 0.4);
+    }
+    .committee-head {
+      background: #ffffff;
+      color: #b71c1c;
+      padding: 9px 14px;
+      border-radius: 14px;
+      font-weight: 900;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    }
+    .chip-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+    .glass-chip {
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,235,238,0.88));
+      color: #7f0000;
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      border: 1.5px solid #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
   </style>
 </head>
 <body>
-  <div class="mist"></div>
-  <div class="container">
-    <h1>आयोजन समिति • Peerpuri Cricket Team Kanod</h1>
-    <div class="subtitle">Senior • Committee • सहयोगी • Decision Maker</div>
 
-    <nav class="btnbar">
-      <a class="gbtn" href="index.html">🏠 Home</a>
-      <a class="gbtn" href="achievements.html">🏆 Achievements</a>
-      <a class="gbtn" href="cup2025.html">🎉 Peerpuri Cup 2025</a>
-    </nav>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
 
-    <section class="section">
-      <h2 class="secTitle">सीनियर आयोजन कमेटी</h2>
-      <div class="panel"><div class="people" id="senior"></div></div>
-    </section>
+  <div class="app-shell">
+    <div class="top-nav">
+      <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Home</a>
+      <span class="page-title"><i class="fa-solid fa-users-gear"></i> Ayojan Cameti</span>
+    </div>
 
-    <section class="section">
-      <h2 class="secTitle">आयोजन कमेटी</h2>
-      <div class="panel"><div class="people" id="main"></div></div>
-    </section>
+    <!-- डिसीजन मेकर -->
+    <div class="glass-box">
+      <div class="committee-head"><i class="fa-solid fa-gavel"></i> डिसीजन मेकर</div>
+      <div class="chip-cloud">
+        <span class="glass-chip">मदन राजपुरोहित</span>
+        <span class="glass-chip">लाला राम</span>
+        <span class="glass-chip">रमेश राजपुरोहित</span>
+        <span class="glass-chip">माल सिंह</span>
+        <span class="glass-chip">जोगा राम</span>
+      </div>
+    </div>
 
-    <section class="section">
-      <h2 class="secTitle">सहयोगी</h2>
-      <div class="panel"><div class="people" id="support"></div></div>
-    </section>
+    <!-- सीनियर आयोजन कमेटी -->
+    <div class="glass-box">
+      <div class="committee-head"><i class="fa-solid fa-crown"></i> सीनियर आयोजन कमेटी</div>
+      <div class="chip-cloud">
+        <span class="glass-chip">मेजर सुमेर सिंह राठोड कानोड़</span>
+        <span class="glass-chip">बाला राम जी लेघा</span>
+        <span class="glass-chip">राजू जी सोनी</span>
+        <span class="glass-chip">राम लाल जी</span>
+        <span class="glass-chip">देवी लाल पोटलिया</span>
+        <span class="glass-chip">मदन सिंह जी राजपुरोहित</span>
+        <span class="glass-chip">देवी लाल सोयल</span>
+        <span class="glass-chip">सवरूप सिंह</span>
+        <span class="glass-chip">करना राम गोदारा</span>
+        <span class="glass-chip">मेघ सिंह राजपुरोहित</span>
+      </div>
+    </div>
 
-    <section class="section">
-      <h2 class="secTitle">डिसीजन मेकर</h2>
-      <div class="panel"><div class="people" id="dm"></div></div>
-    </section>
+    <!-- आयोजन कमेटी -->
+    <div class="glass-box">
+      <div class="committee-head"><i class="fa-solid fa-shield-halved"></i> आयोजन कमेटी</div>
+      <div class="chip-cloud">
+        <span class="glass-chip">लाला राम गोदारा</span>
+        <span class="glass-chip">रमेश राजपुरोहित</span>
+        <span class="glass-chip">किशन पूरी जी</span>
+        <span class="glass-chip">देरावर सिंह सरपंच कानोड़</span>
+        <span class="glass-chip">मालमसिंह</span>
+        <span class="glass-chip">रावत लेघा</span>
+        <span class="glass-chip">किशन लेघा</span>
+        <span class="glass-chip">भवानी सिंह</span>
+        <span class="glass-chip">जोगा राम लेघा</span>
+        <span class="glass-chip">माल सिंह</span>
+        <span class="glass-chip">प्रहलाद गोयल</span>
+      </div>
+    </div>
 
-    <footer>© 2025 Peerpuri Cricket Team Kanod • Committee Directory</footer>
+    <!-- सहयोगी -->
+    <div class="glass-box">
+      <div class="committee-head"><i class="fa-solid fa-handshake-angle"></i> सहयोगी</div>
+      <div class="chip-cloud">
+        <span class="glass-chip">हमीर सिंह</span>
+        <span class="glass-chip">नरोतम जाजडा</span>
+        <span class="glass-chip">शेरा राम भड़िया</span>
+        <span class="glass-chip">नरपत जाजडा</span>
+        <span class="glass-chip">रावत जाजडा</span>
+        <span class="glass-chip">रणवीर पोटलिया</span>
+        <span class="glass-chip">जसराज सोनी</span>
+        <span class="glass-chip">चुना राम</span>
+        <span class="glass-chip">भैर नाथ</span>
+        <span class="glass-chip">किशन भड़िया</span>
+        <span class="glass-chip">भावेश भड़िया</span>
+        <span class="glass-chip">देव</span>
+        <span class="glass-chip">विरध सोयल</span>
+        <span class="glass-chip">सुरेश</span>
+        <span class="glass-chip">मोटा राम</span>
+        <span class="glass-chip">राम सिंह</span>
+        <span class="glass-chip">खेराज राम पनावडा</span>
+        <span class="glass-chip">लीला राम पनावडा</span>
+      </div>
+    </div>
   </div>
 
-  <script>
-    // Modern sporty emojis
-    const EMOJIS = ["🏏","⚡","👑","💪","🎯","🧢","🕶️","🔥","🏆","✨","🏅","🥇","🎽","🏹"];
-    const randomEmoji = () => EMOJIS[Math.floor(Math.random()*EMOJIS.length)];
-
-    const DATA = {
-      senior:["मेजर सुमेर सिंह राठोड कानोड़","बाला राम जी लेघा","राजू जी सोनी","राम लाल जी","देवी लाल पोटलिया","मदन सिंह जी राजपुरोहित","देवी लाल सोयल","सवरूप सिंह","करना राम गोदारा","मेघ सिंह राजपुरोहित"],
-      main:["लाला राम गोदारा","रमेश राजपुरोहित","किशन पूरी जी","देरावर सिंह सरपंच कानोड़","मालमसिंह","रावत लेघा","किशन लेघा","भवानी सिंह","जोगा राम लेघा","माल सिंह","प्रहलाद गोयल"],
-      support:["हमीर सिंह","नरोतम जाजडा","शेरा राम भड़िया","नरपत जाजडा","रावत जाजडा","रणवीर पोटलिया","जसराज सोनी","चुना राम","भैर नाथ","किशन भड़िया","भावेश भड़िया","देव","विरध सोयल","सुरेश","मोटा राम","राम सिंह","खेराज राम पनावडा","लीला राम पनावडा"],
-      dm:["मदन राजपुरोहित","लाला राम","रमेश राजपुरोहित","माल सिंह","जोगा राम"]
-    };
-
-    for (const [key, names] of Object.entries(DATA)) {
-      document.getElementById(key).innerHTML = names.map(n => `
-        <div class="chip">
-          <div class="avatar">${randomEmoji()}</div>
-          <div class="name">${n}</div>
-        </div>
-      `).join("");
-    }
-  </script>
 </body>
 </html>
