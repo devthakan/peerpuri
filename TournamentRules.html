@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>स्पष्ट नियमावली - PEERPURI CUP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles & Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #2e1065, #020617, #083344);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Continuous Colorful Text Gradient Animation */
+        .animated-text-gradient {
+            background: linear-gradient(
+                to right, 
+                #ff2a85, #ff7e5f, #feb47b, #86a8e7, #91eae4, #ff2a85
+            );
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGradient 3s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Glassmorphism Card Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .glass-warning {
+            border-color: rgba(250, 204, 21, 0.5); /* Amber border */
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.15), inset 0 0 15px rgba(250, 204, 21, 0.05);
+        }
+
+        .glass-primary {
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.1), inset 0 0 15px rgba(56, 189, 248, 0.05);
+        }
+        
+        .glass-secondary {
+            border-color: rgba(232, 121, 249, 0.3);
+            box-shadow: 0 0 20px rgba(232, 121, 249, 0.1), inset 0 0 15px rgba(232, 121, 249, 0.05);
+        }
+
+        /* Floating Animation */
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Glowing Back Button */
+        .btn-glow-back:hover { box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); }
+
+        /* Custom Rule List styling */
+        .rule-list li {
+            position: relative;
+            padding-left: 3.5rem;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+        }
+        .rule-list li::before {
+            content: attr(data-num);
+            position: absolute;
+            left: 0;
+            top: -2px;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, #0ea5e9, #2563eb);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.4);
+        }
+
+        .game-rule-list li {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .game-rule-list li::before {
+            content: '🏏';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+    </style>
+</head>
+<body class="p-4 md:p-8 relative">
+
+    <!-- Decorative Background Elements -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[5%] left-[5%] w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-[10%] right-[5%] w-96 h-96 bg-fuchsia-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="w-full max-w-5xl mx-auto flex justify-start mb-6">
+        <a href="index.html" class="group relative overflow-hidden rounded-full p-[2px] transition-transform duration-300 hover:scale-105 active:scale-95 inline-block z-10">
+            <span class="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full"></span>
+            <div class="relative bg-slate-900 rounded-full px-5 py-2 flex items-center justify-center gap-2 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-back">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span class="text-sm md:text-base font-bold text-white group-hover:text-slate-900 drop-shadow-md">Back to Home</span>
+            </div>
+        </a>
+    </div>
+
+    <main class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center space-y-8 pb-12">
+        
+        <!-- Main Title -->
+        <header class="float-anim text-center w-full">
+            <h1 class="text-4xl md:text-6xl font-black uppercase tracking-wider mb-2 drop-shadow-2xl">
+                <span class="animated-text-gradient">स्पष्ट नियमावली</span>
+            </h1>
+            <p class="text-lg md:text-xl font-semibold text-gray-300 tracking-wide mt-2">
+                Tournament Rules & Regulations
+            </p>
+        </header>
+
+        <!-- Disclaimer Box -->
+        <section class="glass-card glass-warning w-full p-6 md:p-8 flex items-start gap-4">
+            <div class="text-4xl">⚠️</div>
+            <div>
+                <h3 class="text-xl font-bold text-amber-400 mb-2">महत्वपूर्ण सूचना (Disclaimer)</h3>
+                <p class="text-gray-200 font-medium leading-relaxed">
+                    अगर आप इस टूर्नामेंट का हिस्सा हैं, तो यह माना जायेगा कि आपने सभी नियम पढ़ लिए हैं और आपको नियमों से कोई दिक्कत नहीं है। <br>
+                    <span class="text-amber-300 mt-2 block font-semibold">उद्घाटन में हर टीम के दो खिलाडियों को आना जरुरी है।</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- General Rules -->
+        <section class="glass-card glass-primary w-full p-6 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 border-b border-cyan-500/50 pb-3 flex items-center gap-3">
+                <span class="text-cyan-400">📋</span> सामान्य नियम
+            </h2>
+            <ul class="rule-list text-gray-200 text-base md:text-lg font-medium">
+                <li data-num="1">एंट्री सिक्युरिटी मनी 1000 रुपये जमा करवानी होगी।</li>
+                <li data-num="2">टीम एक ग्राम पंचायत से होनी चाहिये।</li>
+                <li data-num="3">आधार कार्ड उसी ग्राम पंचायत का होना चाहिए, जिसका ऑनलाइन वेरिफिकेशन होगा।</li>
+                <li data-num="4">टूर्नामेंट ड्रोज या पॉइंट बेस पर आधारित होगा।</li>
+                <li data-num="5">एम्पायर का निर्णय सर्व मान्य और अंतिम होगा।</li>
+                <li data-num="6">एंट्री के वक्त 15 सदस्यों की लिस्ट देनी होगी।</li>
+                <li data-num="7">बाद में टीम में नए प्लेयर नहीं जुड़ेंगे।</li>
+                <li data-num="8">स्कोरिंग ऑनलाइन और ऑफलाइन दोनों प्रकार से होगी।</li>
+                <li data-num="9">मैच के लिए दिए गए समय पर पहुँचना अनिवार्य है।</li>
+                <li data-num="10">किसी भी विवाद में आयोजन कमेटी का निर्णय अंतिम होगा।</li>
+                <li data-num="11">आई डी (ID) प्रूफ जरुरी है, फर्जी खिलाड़ी पाए जाने पर टीम को बाहर किया जाएगा।</li>
+                <li data-num="12">सभी मैच वुड्स बाल (Woods Ball) से खेले जाएंगे।</li>
+                <li data-num="13">सेमीफाइनल 12 ओवर का और फाइनल 14 ओवर का होगा।</li>
+            </ul>
+        </section>
+
+        <!-- Gameplay Rules -->
+        <section class="glass-card glass-secondary w-full p-6 md:p-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 border-b border-fuchsia-500/50 pb-3 flex items-center gap-3">
+                <span class="text-fuchsia-400">⚔️</span> खेल के नियम
+            </h2>
+            <div class="bg-white/5 rounded-2xl p-6 border border-white/10">
+                <ul class="game-rule-list text-gray-200 text-base md:text-lg font-medium grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                    <li>LBW आउट नही माना जायेगा।</li>
+                    <li>विकेट गिरने पर न्यू बेट्समैन ही स्टाइक पर रहेगा।</li>
+                    <li>एक ओवर में एक बॉउन्स मान्य है।</li>
+                    <li>पिच से नीचे डाली गई बॉल 'नो बॉल' (No Ball) होगी।</li>
+                    <li>पावरप्ले नियम: (10 ओवर के मैच में 3 ओवर, 12 ओवर के मैच में 4 ओवर)।</li>
+                    <li>लेग/ऑफ साइड फील्डर के नियम लागू रहेंगे।</li>
+                    <li>मैच में बॉल खो जाने पर पुरानी बॉल का उपयोग किया जाएगा।</li>
+                    <li>मैदान पर अम्पायर का निर्णय अंतिम माना जायेगा।</li>
+                    <li>बॉलर की ओवर लिमिट टूर्नामेंट के नियमों के अनुसार होगी।</li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
