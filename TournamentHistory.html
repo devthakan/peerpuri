@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>टूर्नामेंट का इतिहास - PEERPURI CUP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles & Animated Gradient Background (EXACT MATCH TO THEME) */
+        body {
+            margin: 0;
+            font-family: 'Poppins', 'Noto Sans Devanagari', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #2e1065, #020617, #083344);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Continuous Colorful Text Gradient Animation */
+        .animated-text-gradient {
+            background: linear-gradient(
+                to right, 
+                #ff2a85, #ff7e5f, #feb47b, #86a8e7, #91eae4, #ff2a85
+            );
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGradient 3s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Glassmorphism Card Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Glow variations for cards */
+        .glass-glow-1:hover { border-color: rgba(244, 63, 94, 0.5); box-shadow: 0 15px 35px rgba(244, 63, 94, 0.2), inset 0 0 15px rgba(244, 63, 94, 0.05); }
+        .glass-glow-2:hover { border-color: rgba(56, 189, 248, 0.5); box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2), inset 0 0 15px rgba(56, 189, 248, 0.05); }
+        .glass-glow-3:hover { border-color: rgba(167, 139, 250, 0.5); box-shadow: 0 15px 35px rgba(167, 139, 250, 0.2), inset 0 0 15px rgba(167, 139, 250, 0.05); }
+        .glass-glow-4:hover { border-color: rgba(52, 211, 153, 0.5); box-shadow: 0 15px 35px rgba(52, 211, 153, 0.2), inset 0 0 15px rgba(52, 211, 153, 0.05); }
+        .glass-glow-5:hover { border-color: rgba(250, 204, 21, 0.5); box-shadow: 0 15px 35px rgba(250, 204, 21, 0.2), inset 0 0 15px rgba(250, 204, 21, 0.05); }
+
+        /* Floating Animation */
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Glowing Back Button */
+        .btn-glow-back:hover { box-shadow: 0 0 25px rgba(255, 255, 255, 0.6); }
+
+        /* Version Badge Custom Gradient */
+        .badge-gradient {
+            background: linear-gradient(135deg, #0ea5e9, #8b5cf6, #ec4899);
+            background-size: 200% auto;
+            animation: textGradient 4s linear infinite;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 relative">
+
+    <!-- Decorative Background Elements (Glowing Orbs) -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[5%] left-[5%] w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse"></div>
+        <div class="absolute top-[40%] right-[5%] w-80 h-80 bg-rose-600 rounded-full mix-blend-screen filter blur-[140px] opacity-20 animate-pulse" style="animation-delay: 3s;"></div>
+        <div class="absolute bottom-[10%] left-[20%] w-96 h-96 bg-fuchsia-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Back to Home Button -->
+    <div class="w-full max-w-5xl mx-auto flex justify-start mb-6">
+        <a href="index.html" class="group relative overflow-hidden rounded-full p-[2px] transition-transform duration-300 hover:scale-105 active:scale-95 inline-block z-10">
+            <span class="absolute inset-0 bg-gradient-to-r from-gray-300 to-gray-500 rounded-full"></span>
+            <div class="relative bg-slate-900 rounded-full px-5 py-2 flex items-center justify-center gap-2 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-back">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span class="text-sm md:text-base font-bold text-white group-hover:text-slate-900 drop-shadow-md">Back to Home</span>
+            </div>
+        </a>
+    </div>
+
+    <main class="w-full max-w-4xl mx-auto flex flex-col items-center justify-center space-y-8 pb-12">
+        
+        <!-- Main Title -->
+        <header class="float-anim text-center w-full">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider mb-2 drop-shadow-2xl">
+                <span class="animated-text-gradient">टूर्नामेंट का इतिहास</span>
+            </h1>
+            <p class="text-lg md:text-xl font-semibold text-gray-300 tracking-wide mt-2">
+                Glorious History of Peerpuri Cup 🏆
+            </p>
+        </header>
+
+        <!-- Intro Highlight Box -->
+        <section class="glass-card glass-glow-5 w-full p-6 md:p-8 flex items-center justify-center text-center gap-4 mt-4 border border-amber-400/30">
+            <p class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 to-yellow-500 leading-relaxed drop-shadow-md">
+                🏟️ पीरपुरी स्टेडियम की नीव व् पूर्ण कागजी कार्य स्वर्गीय कृपा राम जी गोदारा द्वारा किया गया है।
+            </p>
+        </section>
+
+        <!-- History Timeline Grid -->
+        <div class="w-full grid grid-cols-1 gap-6 mt-8">
+            
+            <!-- Items 1 to 16 -->
+            <div class="glass-card glass-glow-1 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 1</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">कृपा राम गोदारा द्वारा करवाया गया था जिस में इनामी राशि विजेता को जग व् उपविजेता को ग्लास दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-2 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 2</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">बाला राम लेगा द्वारा करवाया गया जिस में इनामी राशि विजेता को 5100 व् उपविजेता को 2100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-3 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 3</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">युवा क्लब कानोड़ द्वारा करवाया गया जिस में इनामी राशि विजेता को 3100 व् उपविजेता को 2100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-4 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 4</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">पहुप सिंह राणा द्वारा करवाया गया जिस में इनामी राशि विजेता को 3100 व् उपविजेता को 2100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-5 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 5</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">सवरूप सिंह राठोड कानोड़ द्वारा करवाया गया जिस में इनामी राशि विजेता को 5100 व् उपविजेता को 3100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-1 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 6</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">अचला राम गोदारा परिवार चीलानाडी द्वारा करवाया गया जिस में इनामी राशि विजेता को 11000 व् उपविजेता को 5100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-2 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 7</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">स्वर्गीय जबर सिंह भाटी की स्मृति में आयोजन करवाया गया इनामी राशि विजेता को 11000 व् उपविजेता को 5100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-3 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 8</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">स्वर्गीय जबर सिंह भाटी की स्मृति में आयोजन करवाया गया इनामी राशि विजेता को 11000 व् उपविजेता को 5100 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-4 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 9</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">चुनी लाल सुथार द्वारा आयोजन करवाया गया इनामी राशि विजेता को 21000 व् उपविजेता को 11000 दी गई।</p>
+            </div>
+
+            <div class="glass-card glass-glow-5 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 10</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">मेघवालो की बस्ती सरपंच श्रीमान शैलेन्द्र कुमार द्वारा करवाया गया था जो आयोजन वर्ष 2021 में आयोजित हुई थी।</p>
+            </div>
+
+            <div class="glass-card glass-glow-1 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 11</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">भाजपा महामंत्री बाड़मेर श्रीमान बाला राम जी (बायतु) द्वारा करवाया गया था जो आयोजन वर्ष 2022 (जनवरी) में आयोजित हुई थी।</p>
+            </div>
+
+            <div class="glass-card glass-glow-2 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg mt-1">संस्करण 12</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">इस ट्रोफी का आयोजन श्री नारायण सिंह जी राजपुरोहित व् श्री देवी लाल जी सोयल कानोड़, श्री मदन सिंह जी राजपुरोहित (मंडल कानोड़) के आर्थिक सहयोग से हो रहा है जिस में पहला पुरस्कार ग्यारह हजार रुपये श्री नारायण सिंह जी की तरफ से है व् द्वितीय पुरस्कार श्री देवी लाल जी सोयल कानोड़ की तरफ से आयोजित हुई थी।</p>
+            </div>
+
+            <div class="glass-card glass-glow-3 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 13</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">मेघवालो की बस्ती सरपंच श्रीमान शैलेन्द्र कुमार द्वारा करवाया गया था जो आयोजन वर्ष 2022 में आयोजित हुई थी।</p>
+            </div>
+
+            <div class="glass-card glass-glow-4 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg mt-1">संस्करण 14</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">श्रीमान किशोर सिंह जी कानोड़ (युवा उधमी व् समाजसेवी) के द्वारा आयोजित करवाई गया जिस में श्रीमान किशोर सिंह द्वारा एंट्री फ़ीस फ्री के साथ में प्रथम पुरुस्कार 31000 दूसरा पुरस्कार 15000 व् तीसरा पुरस्कार 11000 रखा गया था। गिडा ब्लाक का इतना बड़ा एंट्री फ़ीस का पहला टूर्नामेंट था इस में सम्पूर्ण खर्च 151000 रुपये आया था।</p>
+            </div>
+
+            <div class="glass-card glass-glow-5 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start md:items-center">
+                <div class="badge-gradient text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-lg">संस्करण 15</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">श्रीमान नारायण सिंह जी द्वारा करवाया गया है जिस में प्रथम पुरुस्कार 31000 दूसरा पुरस्कार 21000 की इनामी राशि वाला टूर्नामेंट था जिस टोटल खर्च 2 लाख रुपये खर्च आया।</p>
+            </div>
+
+            <div class="glass-card glass-glow-1 p-6 md:p-8 flex flex-col md:flex-row gap-4 items-start border-l-4 border-l-cyan-400 bg-cyan-900/10">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-600 text-white px-5 py-2 rounded-full font-bold text-lg whitespace-nowrap shadow-[0_0_15px_rgba(34,211,238,0.6)] animate-pulse mt-1">संस्करण 16 (आगामी)</div>
+                <p class="text-gray-200 text-base md:text-lg font-medium leading-relaxed">11 नवम्बर से प्रारंभ होगा जिस में राजपुरोहित समाज द्वारा अपने 24 खेड़ो का आयोजन है जिस का आयोजन की समस्त जिम्मेदारी पीरपुरी क्लब की है।</p>
+            </div>
+
+        </div>
+
+        <!-- Bottom Back Button -->
+        <div class="w-full flex justify-center mt-12 mb-8">
+            <a href="index.html" class="group relative overflow-hidden rounded-full p-[3px] transition-transform duration-300 hover:scale-105 active:scale-95 inline-block z-10">
+                <span class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-full"></span>
+                <div class="relative bg-slate-900 rounded-full px-8 py-3 flex items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0 hover:shadow-[0_0_25px_rgba(56,189,248,0.8)]">
+                    <svg class="w-6 h-6 text-white group-hover:text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span class="text-lg md:text-xl font-bold text-white drop-shadow-md">मुख्य पृष्ठ पर लौटें</span>
+                </div>
+            </a>
+        </div>
+
+    </main>
+
+</body>
+</html>
