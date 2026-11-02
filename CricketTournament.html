@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Tournament - PEERPURI CUP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles & Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #2e1065, #020617, #083344);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Continuous Colorful Text Gradient Animation */
+        .animated-text-gradient {
+            background: linear-gradient(
+                to right, 
+                #ff2a85, #ff7e5f, #feb47b, #86a8e7, #91eae4, #ff2a85
+            );
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGradient 3s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Glassmorphism Card Style */
+        .glass-container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating Animation for Header */
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Glowing Buttons Custom Shadow */
+        .btn-glow-rules:hover { box-shadow: 0 0 30px rgba(244, 63, 94, 0.8); }    /* Rose */
+        .btn-glow-history:hover { box-shadow: 0 0 30px rgba(245, 158, 11, 0.8); } /* Amber */
+        .btn-glow-back:hover { box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+
+    </style>
+</head>
+<body class="p-6 md:p-12 relative w-full">
+
+    <!-- Decorative Background Elements -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[20%] left-[10%] w-72 h-72 bg-rose-500 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-[20%] right-[10%] w-96 h-96 bg-cyan-500 rounded-full mix-blend-screen filter blur-[150px] opacity-30 animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <main class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center space-y-12">
+        
+        <!-- Main Title -->
+        <header class="float-anim text-center w-full mt-8">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase tracking-wider mb-4 drop-shadow-2xl">
+                <span class="animated-text-gradient">CRICKET TOURNAMENT</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-bold text-gray-300 tracking-widest uppercase">
+                Feel The Thrill of the Game ⚡
+            </p>
+        </header>
+
+        <!-- Glowing Glass Container -->
+        <section class="glass-container w-full max-w-4xl mx-auto p-8 md:p-12 z-10">
+            <!-- Subtle internal glow -->
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-white opacity-10 rounded-full blur-[50px]"></div>
+            
+            <div class="text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-white drop-shadow-lg mb-2">Tournament Hub</h2>
+                <p class="text-gray-400 font-medium">Select an option below to explore</p>
+            </div>
+
+            <!-- Buttons Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                
+                <!-- 1. Tournament Rules -->
+                <button onclick="console.log('Tournament Rules Clicked')" class="group relative overflow-hidden rounded-2xl p-[3px] transition-transform duration-300 hover:-translate-y-2 active:scale-95">
+                    <span class="absolute inset-0 bg-gradient-to-r from-rose-400 to-red-600 rounded-2xl"></span>
+                    <div class="relative bg-slate-900 rounded-2xl px-6 py-6 flex flex-col items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-rules h-full">
+                        <span class="text-4xl mb-2">📜</span>
+                        <span class="text-xl md:text-2xl font-bold text-white group-hover:text-white drop-shadow-md">Tournament Rules</span>
+                    </div>
+                </button>
+
+                <!-- 2. Tournament History -->
+                <button onclick="console.log('Tournament History Clicked')" class="group relative overflow-hidden rounded-2xl p-[3px] transition-transform duration-300 hover:-translate-y-2 active:scale-95">
+                    <span class="absolute inset-0 bg-gradient-to-r from-amber-400 to-yellow-600 rounded-2xl"></span>
+                    <div class="relative bg-slate-900 rounded-2xl px-6 py-6 flex flex-col items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-history h-full">
+                        <span class="text-4xl mb-2">🏆</span>
+                        <span class="text-xl md:text-2xl font-bold text-white group-hover:text-white drop-shadow-md">Tournament History</span>
+                    </div>
+                </button>
+
+            </div>
+        </section>
+
+        <!-- Back to Home Button at the bottom -->
+        <div class="w-full mt-8 flex justify-center pb-12">
+            <a href="index.html" class="group relative overflow-hidden rounded-full p-[2px] transition-transform duration-300 hover:scale-105 active:scale-95 inline-block">
+                <span class="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"></span>
+                <div class="relative bg-slate-900 rounded-full px-8 py-3 flex items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-back">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span class="text-lg font-bold text-white drop-shadow-md">Back to Home</span>
+                </div>
+            </a>
+        </div>
+
+    </main>
+
+</body>
+</html>
