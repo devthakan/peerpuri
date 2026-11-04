@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Members - PEERPURI CUP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles & Animated Gradient Background */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #2e1065, #020617, #083344);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Continuous Colorful Text Gradient Animation */
+        .animated-text-gradient {
+            background: linear-gradient(to right, #ff2a85, #ff7e5f, #feb47b, #86a8e7, #91eae4, #ff2a85);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGradient 3s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Glassmorphism Card Styles */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.05), transparent);
+            transform: skewX(-20deg);
+            transition: 0.7s;
+        }
+
+        .glass-card:hover::before {
+            left: 150%;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Specific Glows for Roles */
+        .glow-captain { border-color: rgba(250, 204, 21, 0.3); }
+        .glow-captain:hover { 
+            border-color: rgba(250, 204, 21, 0.8); 
+            box-shadow: 0 15px 35px rgba(250, 204, 21, 0.2), inset 0 0 20px rgba(250, 204, 21, 0.1); 
+        }
+
+        .glow-vice { border-color: rgba(56, 189, 248, 0.3); }
+        .glow-vice:hover { 
+            border-color: rgba(56, 189, 248, 0.8); 
+            box-shadow: 0 15px 35px rgba(56, 189, 248, 0.2), inset 0 0 20px rgba(56, 189, 248, 0.1); 
+        }
+
+        .glow-player:hover { 
+            border-color: rgba(232, 121, 249, 0.5); 
+            box-shadow: 0 15px 35px rgba(232, 121, 249, 0.15), inset 0 0 20px rgba(232, 121, 249, 0.05); 
+        }
+
+        /* Floating Animation */
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .stat-box {
+            background: rgba(15, 23, 42, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 8px 4px;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 relative">
+
+    <!-- Decorative Background Elements (Glowing Orbs) -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[5%] left-[10%] w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[120px] opacity-20 animate-pulse"></div>
+        <div class="absolute top-[40%] right-[5%] w-80 h-80 bg-rose-600 rounded-full mix-blend-screen filter blur-[140px] opacity-20 animate-pulse" style="animation-delay: 3s;"></div>
+        <div class="absolute bottom-[5%] left-[20%] w-96 h-96 bg-fuchsia-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="w-full max-w-7xl mx-auto flex justify-start mb-6">
+        <a href="index.html" class="group relative overflow-hidden rounded-full p-[2px] transition-transform duration-300 hover:scale-105 active:scale-95 inline-block z-10">
+            <span class="absolute inset-0 bg-gradient-to-r from-gray-400 to-gray-600 rounded-full"></span>
+            <div class="relative bg-slate-900 rounded-full px-6 py-2 flex items-center justify-center gap-2 transition-all duration-300 group-hover:bg-opacity-0 hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                <span class="text-sm md:text-base font-bold text-white drop-shadow-md">Back</span>
+            </div>
+        </a>
+    </div>
+
+    <main class="w-full max-w-7xl mx-auto flex flex-col items-center justify-center space-y-12 pb-12">
+        
+        <!-- Main Title -->
+        <header class="float-anim text-center w-full">
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-wider mb-3 drop-shadow-2xl">
+                <span class="animated-text-gradient">PEERPURI TEAM MEMBERS</span>
+            </h1>
+            <p class="text-lg md:text-xl font-semibold text-gray-300 tracking-widest uppercase">
+                The Legends of the Field ⚡
+            </p>
+        </header>
+
+        <!-- Container for dynamically generated cards -->
+        <div id="team-container" class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Cards will be injected here by JavaScript -->
+        </div>
+
+    </main>
+
+    <!-- Script to Generate Cards to keep HTML clean and manageable -->
+    <script>
+        const teamData = [
+            { name: "Joga Ram Legha", role: "Captain", style: "Left Arm Fast Bowler", match: 230, run: 5470, wicket: 455, joined: 2015 },
+            { name: "Ramesh Rajpurohit", role: "Vice Captain", style: "Left Arm Opener Batter", match: 45, run: 1040, wicket: 3, joined: 2025 },
+            { name: "Chuna Ram", role: "Player", style: "Hardhitter Batter", match: 210, run: 10401, wicket: 35, joined: 2018 },
+            { name: "Rawat Legha", role: "Player", style: "Hardhitter Batter", match: 215, run: 8401, wicket: 104, joined: 2012 },
+            { name: "Kishan Puri", role: "Player", style: "Hardhitter Batter", match: 180, run: 7540, wicket: 85, joined: 2012 },
+            { name: "Lala Ram", role: "Player", style: "Hardhitter Batter", match: 310, run: 15470, wicket: 45, joined: 2010 },
+            { name: "Hamir Singh", role: "Player", style: "Hardhitter Batter", match: 240, run: 9578, wicket: 30, joined: 2012 },
+            { name: "Malam Singh", role: "Player", style: "Hardhitter Batter", match: 110, run: 4578, wicket: 35, joined: 2018 },
+            { name: "Jitendra Singh", role: "Player", style: "Hardhitter Batter", match: 15, run: 270, wicket: 0, joined: 2026 },
+            { name: "Khima Ram", role: "Player", style: "Hardhitter Batter", match: 245, run: 5470, wicket: 0, joined: 2015 },
+            { name: "Bhera Ram", role: "Player", style: "Hardhitter Batter", match: 40, run: 780, wicket: 5, joined: 2015 },
+            { name: "Narrotam Jajra", role: "Player", style: "Fast Bowler", match: 240, run: 1580, wicket: 340, joined: 2016 },
+            { name: "Rahul Jajra", role: "Player", style: "Fast Bowler", match: 240, run: 4570, wicket: 311, joined: 2010 },
+            { name: "SP Thakan", role: "Player", style: "Fast Bowler", match: 210, run: 3580, wicket: 245, joined: 2016 },
+            { name: "Chuna Ram Kundu", role: "Player", style: "Spinner", match: 20, run: 450, wicket: 40, joined: 2025 },
+            { name: "Suresh Legha", role: "Player", style: "Hardhitter Batter", match: 40, run: 780, wicket: 0, joined: 2025 },
+            { name: "Jasraj Soni", role: "Player", style: "Hardhitter Batter", match: 42, run: 781, wicket: 0, joined: 2025 }
+        ];
+
+        const container = document.getElementById('team-container');
+
+        teamData.forEach(player => {
+            let roleBadge = '';
+            let cardClass = 'glow-player';
+            let titleColor = 'group-hover:text-fuchsia-400';
+            
+            if (player.role === 'Captain') {
+                roleBadge = `<span class="bg-amber-500/20 text-amber-400 text-xs font-bold px-3 py-1 rounded-full border border-amber-500/50 shadow-[0_0_10px_rgba(250,204,21,0.3)]">👑 Captain</span>`;
+                cardClass = 'glow-captain md:col-span-2 lg:col-span-2 xl:col-span-2'; // Make captain card larger on big screens
+                titleColor = 'text-amber-400';
+            } else if (player.role === 'Vice Captain') {
+                roleBadge = `<span class="bg-cyan-500/20 text-cyan-400 text-xs font-bold px-3 py-1 rounded-full border border-cyan-500/50 shadow-[0_0_10px_rgba(6,182,212,0.3)]">⭐ Vice Captain</span>`;
+                cardClass = 'glow-vice md:col-span-2 lg:col-span-2 xl:col-span-2'; // Make VC card larger
+                titleColor = 'text-cyan-400';
+            } else {
+                roleBadge = `<span class="bg-fuchsia-500/20 text-fuchsia-300 text-xs font-medium px-3 py-1 rounded-full border border-fuchsia-500/30">🏏 Player</span>`;
+            }
+
+            const cardHTML = `
+                <div class="glass-card ${cardClass} p-6 flex flex-col h-full group">
+                    
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="text-2xl font-bold text-white transition-colors duration-300 ${titleColor}">${player.name}</h3>
+                        ${roleBadge}
+                    </div>
+                    
+                    <p class="text-sm text-gray-400 font-medium mb-6 italic border-l-2 border-white/20 pl-2 py-0.5">
+                        ${player.style}
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-3 text-center mb-6 mt-auto">
+                        <div class="stat-box">
+                            <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">Matches</p>
+                            <p class="text-xl md:text-2xl font-black text-emerald-400 drop-shadow-[0_0_8px_rgba(52,211,153,0.6)]">${player.match}</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">Runs</p>
+                            <p class="text-xl md:text-2xl font-black text-cyan-400 drop-shadow-[0_0_8px_rgba(34,211,238,0.6)]">${player.run}</p>
+                        </div>
+                        <div class="stat-box">
+                            <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-widest font-semibold mb-1">Wickets</p>
+                            <p class="text-xl md:text-2xl font-black text-rose-400 drop-shadow-[0_0_8px_rgba(251,113,133,0.6)]">${player.wicket}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-2 mt-2 pt-4 border-t border-white/10">
+                        <span class="text-lg">📅</span>
+                        <p class="text-xs md:text-sm font-medium text-gray-400">Team Join: <span class="text-white font-bold ml-1">${player.joined}</span></p>
+                    </div>
+
+                </div>
+            `;
+            
+            container.innerHTML += cardHTML;
+        });
+    </script>
+</body>
+</html>
