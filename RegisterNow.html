@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Closed - PEERPURI CUP</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Base Styles & Animated Gradient Background (EXACT MATCH TO THEME) */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(-45deg, #0f172a, #2e1065, #020617, #083344);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Continuous Colorful Text Gradient Animation */
+        .animated-text-gradient {
+            background: linear-gradient(to right, #ff2a85, #ff7e5f, #feb47b, #86a8e7, #91eae4, #ff2a85);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: textGradient 3s linear infinite;
+        }
+
+        @keyframes textGradient {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        /* Glassmorphism Popup/Modal Style */
+        .glass-popup {
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 32px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Modern Entrance Animation (Scale & Fade in) */
+        @keyframes popupEnter {
+            0% { opacity: 0; transform: scale(0.8) translateY(30px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        .animate-popup {
+            animation: popupEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Floating Animation for the Icon */
+        .float-anim {
+            animation: float 4s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Custom Glowing Button Effects */
+        .btn-glow-whatsapp:hover { 
+            box-shadow: 0 0 30px rgba(34, 197, 94, 0.7); 
+            transform: translateY(-3px);
+        }
+        .btn-glow-home:hover { 
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4); 
+            transform: translateY(-3px);
+        }
+
+    </style>
+</head>
+<body class="p-6 relative w-full">
+
+    <!-- Decorative Background Elements (Glowing Orbs) -->
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[10%] left-[20%] w-72 h-72 bg-blue-600 rounded-full mix-blend-screen filter blur-[130px] opacity-30 animate-pulse"></div>
+        <div class="absolute bottom-[15%] right-[20%] w-96 h-96 bg-rose-600 rounded-full mix-blend-screen filter blur-[150px] opacity-20 animate-pulse" style="animation-delay: 2s;"></div>
+        <div class="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-fuchsia-500 rounded-full mix-blend-screen filter blur-[140px] opacity-10 animate-pulse" style="animation-delay: 4s;"></div>
+    </div>
+
+    <!-- Center Popup Container -->
+    <main class="w-full max-w-xl mx-auto glass-popup animate-popup relative overflow-hidden z-10 p-8 md:p-12 text-center">
+        
+        <!-- Internal subtle glow ring -->
+        <div class="absolute -top-32 -right-32 w-64 h-64 bg-emerald-500 rounded-full mix-blend-screen filter blur-[100px] opacity-20"></div>
+
+        <!-- Warning / Info Icon -->
+        <div class="float-anim mb-6 flex justify-center">
+            <div class="w-20 h-20 bg-slate-800/80 rounded-full flex items-center justify-center border border-white/10 shadow-lg shadow-black/50">
+                <span class="text-4xl">📢</span>
+            </div>
+        </div>
+        
+        <!-- Heading -->
+        <h1 class="text-4xl md:text-5xl font-black uppercase tracking-wider mb-4 drop-shadow-2xl">
+            <span class="animated-text-gradient">Registration Closed</span>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="text-gray-300 text-base md:text-lg font-medium leading-relaxed mb-10 px-2">
+            Currently, registrations for the tournament are closed. For the latest updates, event details, and more information, please join our official WhatsApp group.
+        </p>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col gap-4 w-full max-w-sm mx-auto">
+            
+            <!-- Join WhatsApp Button -->
+            <a href="https://chat.whatsapp.com/CHMrnpvU7ri1IIIU36jDcY" target="_blank" class="group relative overflow-hidden rounded-full p-[3px] transition-all duration-300 block">
+                <span class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-600 rounded-full"></span>
+                <div class="relative bg-slate-900 rounded-full px-6 py-4 flex items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-whatsapp">
+                    <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.584c-.607-1.052-.927-2.262-.926-3.503.005-5.914 4.819-10.728 10.741-10.728 2.87 0 5.568 1.12 7.595 3.151 2.028 2.032 3.146 4.73 3.146 7.604-.005 5.922-4.819 10.738-10.738 10.738z"/>
+                    </svg>
+                    <span class="text-lg font-bold text-white drop-shadow-md">Join WhatsApp Group</span>
+                </div>
+            </a>
+
+            <!-- Back to Home Button -->
+            <a href="index.html" class="group relative overflow-hidden rounded-full p-[2px] transition-all duration-300 block mt-2">
+                <span class="absolute inset-0 bg-gradient-to-r from-gray-500 to-gray-700 rounded-full"></span>
+                <div class="relative bg-slate-900 rounded-full px-6 py-3 flex items-center justify-center gap-3 transition-all duration-300 group-hover:bg-opacity-0 btn-glow-home">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span class="text-base font-bold text-white drop-shadow-md">Back to Home</span>
+                </div>
+            </a>
+
+        </div>
+    </main>
+
+</body>
+</html>
